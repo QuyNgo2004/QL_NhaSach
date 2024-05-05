@@ -8,7 +8,7 @@ namespace QLNS_ET
 {
     public class ET_ChiNhanh
     {
-        string maCN, tenCN ,diaChi;
+        private string maCN, tenCN ,diaChi;
 
         public ET_ChiNhanh()
         {

@@ -8,9 +8,9 @@ namespace QLNS_ET
 {
     public class ET_NhanVien
     {
-        string maNV, tenNV, diaChi, sDT, chucVu, gioiTinh;
-        DateTime ngaySinh, ngayTao;
-        ET_ChiNhanh maCN;
+        private string maNV, tenNV, diaChi, sDT, chucVu, gioiTinh;
+        private DateTime ngaySinh, ngayTao;
+        private ET_ChiNhanh maCN;
 
         public ET_NhanVien()
         {
@@ -38,6 +38,6 @@ namespace QLNS_ET
         public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
         public DateTime NgayTao { get => ngayTao; set => ngayTao = value; }
-        internal ET_ChiNhanh MaCN { get => maCN; set => maCN = value; }
+        public ET_ChiNhanh MaCN { get => maCN; set => maCN = value; }
     }
 }

@@ -1,6 +1,6 @@
-﻿create database QLNhaSach
+﻿--create database QLNhaSach
 use QLNhaSach
---drop database QLNS
+--drop database QLNhaSach
 go
 SET DATEFORMAT dmy;
 --Tạo bảng chi nhánh
@@ -74,17 +74,18 @@ maSP INT --Qua tang kem )
 )
 --Tao bang chi tiet khuyen mai
 create table CTKhuyenMai(
+maCTKM INT IDENTITY(1,1),
 maSP INT foreign key references SanPham(maSP) ,
 maKM varchar(20) foreign key references KhuyenMai(maKM),
 ngayBD dateTime,
 ngayKT dateTime,
-constraint PK_CTKM primary key(maSP,maKM))
+constraint PK_CTKM primary key(maSP,maKM,maCTKM))
 --Tao bang nhan vien
 CREATE TABLE NhanVien (
 MANV CHAR(15) primary key,
 HOTENNV NVARCHAR(255) NOT NULL,
 DIACHINV NVARCHAR(100),
-SDT INT NULL,
+SDT varchar NULL,
 NGAYSINH DATE NOT NULL,
 CHUCVU NVARCHAR(50),
 maCN varchar(20) foreign key references ChiNhanh(maCN),
@@ -99,11 +100,12 @@ ngayHD DATE,
 tongHD float)
 --Tao bang chi tiet hoa don
 create table CTHoaDon(
+maCTHD INT IDENTITY(1,1) ,
 maHD int foreign key references HoaDon(maHD),
 maSP int foreign key references SanPham(maSP),
 SL int,
 TTien float
-constraint PK_CTHD primary key (maHD,maSP))
+constraint PK_CTHD primary key (maHD,maSP,maCTHD))
 --Tao bang tai khoan
 create table TaiKhoan(
 maNV CHAR(15) foreign key references NhanVien(maNV) primary key,

@@ -11,12 +11,12 @@ namespace QLNS_BUS
     public class BUS_TheLoai
     {
         DAL_TheLoai dal = new DAL_TheLoai();
-        public List<QLNS_ET.ET_TheLoai> LoadDSTheLoai()
+        public IQueryable LoadDSTheLoai()
         {
 
             return dal.LoadTheLoai();
         }
-        public List<QLNS_ET.ET_TheLoai> LoadDSTheLoaiDM(string maDM)
+        public IQueryable LoadDSTheLoaiDM(string maDM)
         {
             return dal.LoadTheLoaiDM(maDM);
         }

@@ -8,11 +8,11 @@ namespace QLNS_ET
 {
     public class ET_HoaDon
     {
-        int maHD;
-        ET_NhanVien maNV;
-        ET_KhachHang maKH;
-        DateTime ngayHD;
-        float tongHD;
+        private int maHD;
+        private ET_NhanVien maNV;
+        private ET_KhachHang maKH;
+        private DateTime ngayHD;
+        private float tongHD;
 
         public ET_HoaDon()
         {

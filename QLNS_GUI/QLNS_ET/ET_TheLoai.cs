@@ -8,8 +8,8 @@ namespace QLNS_ET
 {
     public class ET_TheLoai
     {
-        ET_DanhMuc maDM;
-        string maTL, tenTL, ghiChu,tenDM;
+        private ET_DanhMuc maDM;
+        private string maTL, tenTL, ghiChu,tenDM;
 
         public ET_TheLoai()
         {

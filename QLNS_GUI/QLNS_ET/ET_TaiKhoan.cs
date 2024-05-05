@@ -8,8 +8,8 @@ namespace QLNS_ET
 {
     public class ET_TaiKhoan
     {
-        ET_NhanVien maNV;
-        string tenTK, mKhau;
+        private ET_NhanVien maNV;
+        private string tenTK, mKhau;
 
         public ET_TaiKhoan()
         {

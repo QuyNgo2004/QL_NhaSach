@@ -8,34 +8,45 @@ namespace QLNS_ET
 {
     public class ET_SanPham
     {
-        string  maTL, tenSP, maNCC, maDV;
-        bool tKem;
-        float giaSP;
-        int sLTonKho, maSP;
+        private string tenSP;
+        private ET_TheLoai maTL;
+        private ET_NhaCC maNCC;
+        private ET_DonVi  maDV;
+        private int tKem;
+        private float giaSP;
+        private int sLTonKho, maSP;
 
         public ET_SanPham()
         {
+            MaTL = new ET_TheLoai();
+            MaNCC = new ET_NhaCC();
+            MaDV = new ET_DonVi();
         }
 
-        public ET_SanPham(int maSP, string maTL, string tenSP, string maNCC, string maDV, bool tKem, float giaSP, int sLTonKho)
+        public ET_SanPham(int maSP, string maTL, string tenSP, string maNCC, int maDV, bool tKem, float giaSP, int sLTonKho)
         {
             this.MaSP = maSP;
-            this.MaTL = maTL;
+            this.MaTL.MaTL = maTL;
             this.TenSP = tenSP;
-            this.MaNCC = maNCC;
-            this.MaDV = maDV;
-            this.TKem = tKem;
+            this.MaNCC.MaNCC = maNCC;
+            this.MaDV.MaDV = maDV;
+            if (tKem == true)
+            {
+                this.TKem = 1;
+            }
+            else this.TKem = 0;
             this.GiaSP = giaSP;
             this.SLTonKho = sLTonKho;
         }
 
         public int MaSP { get => maSP; set => maSP = value; }
-        public string MaTL { get => maTL; set => maTL = value; }
         public string TenSP { get => tenSP; set => tenSP = value; }
-        public string MaNCC { get => maNCC; set => maNCC = value; }
-        public string MaDV { get => maDV; set => maDV = value; }
-        public bool TKem { get => tKem; set => tKem = value; }
+      
         public float GiaSP { get => giaSP; set => giaSP = value; }
         public int SLTonKho { get => sLTonKho; set => sLTonKho = value; }
+        public int TKem { get => tKem; set => tKem = value; }
+        public ET_TheLoai MaTL { get => maTL; set => maTL = value; }
+        public ET_NhaCC MaNCC { get => maNCC; set => maNCC = value; }
+        public ET_DonVi MaDV { get => maDV; set => maDV = value; }
     }
 }

@@ -8,7 +8,7 @@ namespace QLNS_ET
 {
     public class ET_KhachHang
     {
-        string maKH, tenKH, sDT;
+        private string maKH, tenKH, sDT;
 
         public ET_KhachHang()
         {

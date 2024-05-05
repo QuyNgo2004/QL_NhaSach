@@ -11,53 +11,29 @@ namespace QLNS_DAL
     public class DAL_TheLoai
     {
         DAL_DATA data = new DAL_DATA();
-        //Load danh muc
-        public List<QLNS_ET.ET_TheLoai> LoadTheLoai()
+        //Load the loai
+        public IQueryable LoadTheLoai()
         {
-
-            List<QLNS_ET.ET_TheLoai> dsTheLoai   = new List<QLNS_ET.ET_TheLoai>();
-            var ds = from tl in data.Data.TheLoais
+            IQueryable ds = from tl in data.Data.TheLoais
                      join dm in data.Data.DanhMucs
                      on tl.maDM equals dm.maDM
-                     select new {tl.maTL,tl.tenTL,tl.ghiChu,dm.tenDM};
-            foreach (var item in ds)
-            {
-
-                QLNS_ET.ET_TheLoai tl = new QLNS_ET.ET_TheLoai
-                {
-                    MaDM = new ET_DanhMuc { TenDM = item.tenDM },
-                    MaTL = item.maTL,
-                    TenTL = item.tenTL,
-                    GhiChu = item.ghiChu
-                };
-                dsTheLoai.Add(tl);
-            }
-            return dsTheLoai;
+                     select new { MãTL = tl.maTL,TênTL = tl.tenTL,GhiChu = tl.ghiChu,TênDM = dm.tenDM };
+           
+            return ds;
         }
-        //Load danh muc theo danh muc
-        public List<QLNS_ET.ET_TheLoai> LoadTheLoaiDM(string maDM)
+        //Load the loai theo the loai
+        public IQueryable LoadTheLoaiDM(string maDM)
         {
 
-            List<QLNS_ET.ET_TheLoai> dsTheLoai = new List<QLNS_ET.ET_TheLoai>();
-            var ds = from tl in data.Data.TheLoais
+            IQueryable ds = from tl in data.Data.TheLoais
                      join dm in data.Data.DanhMucs
                      on tl.maDM equals dm.maDM
                      where maDM == tl.maDM
-                     select new { tl.maTL, tl.tenTL, tl.ghiChu };
-            foreach (var item in ds)
-            {
+                     select new { MãTL = tl.maTL, TênTL = tl.tenTL, GhiChu = tl.ghiChu, TênDM = dm.tenDM };
 
-                QLNS_ET.ET_TheLoai tl = new QLNS_ET.ET_TheLoai
-                {
-                    MaTL = item.maTL,
-                    TenTL = item.tenTL,
-                    GhiChu = item.ghiChu
-                };
-                dsTheLoai.Add(tl);
-            }
-            return dsTheLoai;
+            return ds;
         }
-        //Them danh muc
+        //Them the loai
         public bool ThemTheLoai(ET_TheLoai theLoai)
         {
             try
@@ -81,7 +57,7 @@ namespace QLNS_DAL
             }
             return true;
         }
-        //Xoa danh muc
+        //Xoa the loai
         public bool XoaTheLoai(ET_TheLoai theLoai)
         {
             try
@@ -104,7 +80,7 @@ namespace QLNS_DAL
             }
             return true;
         }
-        //Sua danh muc
+        //Sua the loai
         public bool SuaTheLoai(ET_TheLoai theLoai)
         {
             try

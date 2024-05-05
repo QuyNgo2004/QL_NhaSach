@@ -8,7 +8,7 @@ namespace QLNS_ET
 {
     public class ET_DanhMuc
     {
-        string maDM, tenDM, ghiChu;
+        private string maDM, tenDM, ghiChu;
 
         public string MaDM { get => maDM; set => maDM = value; }
         public string TenDM { get => tenDM; set => tenDM = value; }

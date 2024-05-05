@@ -11,50 +11,25 @@ namespace QLNS_DAL
     {
         DAL_DATA data = new DAL_DATA();
         //Load danh muc
-        public List<QLNS_ET.ET_DonVi> LoadDonVi()
+        public IQueryable LoadDonVi()
         {
-
-            List<QLNS_ET.ET_DonVi> dsDonVi = new List<QLNS_ET.ET_DonVi>();
-            var ds = from dv in data.Data.DonVis
+            IQueryable ds = from dv in data.Data.DonVis
                      join dm in data.Data.DanhMucs
                      on dv.maDM equals dm.maDM
-                     select new { dv.maDV, dv.donVi1, dv.ghiChu, dm.tenDM };
-            foreach (var item in ds)
-            {
-
-                QLNS_ET.ET_DonVi dv = new QLNS_ET.ET_DonVi
-                {
-                    MaDM = new ET_DanhMuc { TenDM = item.tenDM },
-                    MaDV = item.maDV,
-                    TenDV = item.donVi1,
-                    GhiChu = item.ghiChu
-                };
-                dsDonVi.Add(dv);
-            }
-            return dsDonVi;
+                     select new {MãDV = dv.maDV,ĐơnVị = dv.donVi1,GhiChú =  dv.ghiChu,TênDM =  dm.tenDM };
+            return ds;
         }
         //Load danh muc theo danh muc
-        public List<QLNS_ET.ET_DonVi> LoadTheLoaiDM(string maDM)
+        public IQueryable LoadTheLoaiDM(string maDM)
         {
 
-            List<QLNS_ET.ET_DonVi> dsDonVi = new List<QLNS_ET.ET_DonVi>();
-            var ds = from dv in data.Data.DonVis
+          IQueryable ds = from dv in data.Data.DonVis
                      join dm in data.Data.DanhMucs
                      on dv.maDM equals dm.maDM
                      where maDM == dv.maDM
-                     select new { dv.maDV, dv.donVi1, dv.ghiChu };
-            foreach (var item in ds)
-            {
-
-                QLNS_ET.ET_DonVi dv = new QLNS_ET.ET_DonVi
-                {
-                    MaDV = item.maDV,
-                    TenDV = item.donVi1,
-                    GhiChu = item.ghiChu
-                };
-                dsDonVi.Add(dv);
-            }
-            return dsDonVi;
+                     select new { MãDV = dv.maDV, ĐơnVị = dv.donVi1, GhiChú = dv.ghiChu, TênDM = dm.tenDM };
+           
+            return ds;
         }
         //Them danh muc
         public bool ThemTheLoai(ET_DonVi donVi)

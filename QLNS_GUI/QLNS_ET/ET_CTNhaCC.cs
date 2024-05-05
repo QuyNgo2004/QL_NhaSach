@@ -8,11 +8,11 @@ namespace QLNS_ET
 {
     public class ET_CTNhaCC
     {
-        ET_SanPham maSP;
-        ET_NhaCC maNCC;
-        string  ghiChu;
-        int maCTNhaCC, sL;
-        DateTime ngayCC;
+        private ET_SanPham maSP;
+        private ET_NhaCC maNCC;
+        private string ghiChu;
+        private int maCTNhaCC, sL;
+        private DateTime ngayCC;
 
         public ET_CTNhaCC()
         {
@@ -34,7 +34,7 @@ namespace QLNS_ET
         public int MaCTNhaCC { get => maCTNhaCC; set => maCTNhaCC = value; }
         public int SL { get => sL; set => sL = value; }
         public DateTime NgayCC { get => ngayCC; set => ngayCC = value; }
-        internal ET_SanPham MaSP { get => maSP; set => maSP = value; }
-        internal ET_NhaCC MaNCC { get => maNCC; set => maNCC = value; }
+        public ET_SanPham MaSP { get => maSP; set => maSP = value; }
+        public ET_NhaCC MaNCC { get => maNCC; set => maNCC = value; }
     }
 }

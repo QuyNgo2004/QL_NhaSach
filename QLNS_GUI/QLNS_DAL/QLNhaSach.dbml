@@ -10,6 +10,7 @@
   </Table>
   <Table Name="dbo.CTHoaDon" Member="CTHoaDons">
     <Type Name="CTHoaDon">
+      <Column Name="maCTHD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="maHD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="maSP" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SL" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -20,6 +21,7 @@
   </Table>
   <Table Name="dbo.CTKhuyenMai" Member="CTKhuyenMais">
     <Type Name="CTKhuyenMai">
+      <Column Name="maCTKM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="maSP" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="maKM" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ngayBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -98,22 +100,6 @@
       <Association Name="SanPham_NhaCCCT" Member="SanPham" ThisKey="maSP" OtherKey="maSP" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NhanVien" Member="NhanViens">
-    <Type Name="NhanVien">
-      <Column Name="MANV" Type="System.String" DbType="Char(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="HOTENNV" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="DIACHINV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SDT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="CHUCVU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="maCN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="GIOITINH" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="CREATED_DATE_NV" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="NhanVien_HoaDon" Member="HoaDons" ThisKey="MANV" OtherKey="maNV" Type="HoaDon" />
-      <Association Name="NhanVien_TaiKhoan" Member="TaiKhoan" ThisKey="MANV" OtherKey="maNV" Type="TaiKhoan" Cardinality="One" />
-      <Association Name="ChiNhanh_NhanVien" Member="ChiNhanh" ThisKey="maCN" OtherKey="maCN" Type="ChiNhanh" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="maSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -147,6 +133,22 @@
       <Column Name="ghiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Association Name="TheLoai_SanPham" Member="SanPhams" ThisKey="maTL" OtherKey="maTL" Type="SanPham" />
       <Association Name="DanhMuc_TheLoai" Member="DanhMuc" ThisKey="maDM" OtherKey="maDM" Type="DanhMuc" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MANV" Type="System.String" DbType="Char(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTENNV" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHINV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CHUCVU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="maCN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GIOITINH" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CREATED_DATE_NV" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="NhanVien_HoaDon" Member="HoaDons" ThisKey="MANV" OtherKey="maNV" Type="HoaDon" />
+      <Association Name="NhanVien_TaiKhoan" Member="TaiKhoan" ThisKey="MANV" OtherKey="maNV" Type="TaiKhoan" Cardinality="One" />
+      <Association Name="ChiNhanh_NhanVien" Member="ChiNhanh" ThisKey="maCN" OtherKey="maCN" Type="ChiNhanh" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

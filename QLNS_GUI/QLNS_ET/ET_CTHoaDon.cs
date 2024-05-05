@@ -8,10 +8,11 @@ namespace QLNS_ET
 {
     public class ET_CTHoaDon
     {
-        ET_HoaDon maHD;
-        ET_SanPham maSP;
-        int sLuong;
-        float tTien;
+        private int maCTHD;
+        private ET_HoaDon maHD;
+        private ET_SanPham maSP;
+        private int sLuong;
+        private float tTien;
 
         public ET_CTHoaDon()
         {
@@ -19,8 +20,9 @@ namespace QLNS_ET
             maSP = new ET_SanPham();
         }
 
-        public ET_CTHoaDon(ET_HoaDon maHD, ET_SanPham maSP, int sLuong)
+        public ET_CTHoaDon(int maCTHD,ET_HoaDon maHD, ET_SanPham maSP, int sLuong)
         {
+            this.MaCTHD = maCTHD;
             this.MaHD = maHD;
             this.MaSP = maSP;
             this.SLuong = sLuong;
@@ -29,7 +31,8 @@ namespace QLNS_ET
 
         public int SLuong { get => sLuong; set => sLuong = value; }
         public float TTien { get => tTien; set => tTien = value; }
-        internal ET_HoaDon MaHD { get => maHD; set => maHD = value; }
-        internal ET_SanPham MaSP { get => maSP; set => maSP = value; }
+        public int MaCTHD { get => maCTHD; set => maCTHD = value; }
+        public ET_HoaDon MaHD { get => maHD; set => maHD = value; }
+        public ET_SanPham MaSP { get => maSP; set => maSP = value; }
     }
 }

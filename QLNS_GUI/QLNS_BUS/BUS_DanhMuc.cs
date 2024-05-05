@@ -11,7 +11,7 @@ namespace QLNS_BUS
     public class BUS_DanhMuc
     {
         DAL_DanhMuc dal = new DAL_DanhMuc();
-        public List<QLNS_ET.ET_DanhMuc> LoadDSDanhMuc()
+        public IQueryable LoadDSDanhMuc()
         {
             
             return dal.LoadDanhMuc();

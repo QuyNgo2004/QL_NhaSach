@@ -8,7 +8,7 @@ namespace QLNS_ET
 {
     public class ET_NhaCC
     {
-        string maNCC, tenNCC, diaChi, sDT, ghiChu;
+        private string maNCC, tenNCC, diaChi, sDT, ghiChu;
 
         public ET_NhaCC()
         {

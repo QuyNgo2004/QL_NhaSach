@@ -7,30 +7,31 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_DanhMuc : DAL_DATA
+    public class DAL_KhachHang
     {
         DAL_DATA data = new DAL_DATA();
         //Load danh muc
-        public IQueryable LoadDanhMuc()
+        public IQueryable LoadKhachHang()
         {
-            
-           IQueryable ds = from item in data.Data.DanhMucs select item;
-           
+
+            IQueryable ds = from item in data.Data.KhachHangs select item;
+
             return ds;
         }
         //Them danh muc
-        public bool ThemDanhMuc(ET_DanhMuc danhMuc)
+        public bool ThemKhachHang(ET_KhachHang khachHang)
         {
             try
             {
-                DanhMuc dm = new DanhMuc
+                KhachHang kh = new KhachHang
                 {
-                    maDM = danhMuc.MaDM,
-                    tenDM = danhMuc.TenDM,
-                    ghiChu = danhMuc .GhiChu
+                    maKH = khachHang.MaKH,
+                    tenKH = khachHang.TenKH,
+                    sDT = khachHang.SDT
                 };
-                data.Data.DanhMucs.InsertOnSubmit(dm);
-            }catch (Exception ex)
+                data.Data.KhachHangs.InsertOnSubmit(kh);
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -41,15 +42,16 @@ namespace QLNS_DAL
             return true;
         }
         //Xoa danh muc
-        public bool XoaDanhMuc(ET_DanhMuc danhMuc)
+        public bool XoaKhachHang(ET_KhachHang khachHang)
         {
             try
             {
-                var list = from item in data.Data.DanhMucs where item.maDM == danhMuc.MaDM
+                var list = from item in data.Data.KhachHangs
+                           where item.maKH == khachHang.MaKH
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.DanhMucs.DeleteOnSubmit(item);
+                    data.Data.KhachHangs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -63,14 +65,15 @@ namespace QLNS_DAL
             return true;
         }
         //Sua danh muc
-        public bool SuaDanhMuc(ET_DanhMuc danhMuc)
+        public bool SuaKhachHang(ET_KhachHang khachHang)
         {
             try
             {
-                var suaDM = data.Data.DanhMucs.Single(DanhMuc => DanhMuc.maDM == danhMuc.MaDM);
-                suaDM.tenDM = danhMuc.TenDM;
-                suaDM.ghiChu = danhMuc.GhiChu;
-            }catch(Exception ex)
+                var suaDM = data.Data.KhachHangs.Single(KhachHang => KhachHang.maKH == khachHang.MaKH);
+                suaDM.tenKH = khachHang.TenKH;
+                suaDM.sDT = khachHang.SDT;
+            }
+            catch (Exception ex)
             {
                 return false;
             }

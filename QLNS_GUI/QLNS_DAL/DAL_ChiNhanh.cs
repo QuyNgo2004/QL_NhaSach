@@ -7,30 +7,31 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_DanhMuc : DAL_DATA
+    public class DAL_ChiNhanh
     {
         DAL_DATA data = new DAL_DATA();
-        //Load danh muc
-        public IQueryable LoadDanhMuc()
+        //Load chi nhanh
+        public IQueryable LoadChiNhanh()
         {
-            
-           IQueryable ds = from item in data.Data.DanhMucs select item;
-           
+
+            IQueryable ds = from item in data.Data.ChiNhanhs select item;
+
             return ds;
         }
         //Them danh muc
-        public bool ThemDanhMuc(ET_DanhMuc danhMuc)
+        public bool ThemChiNhanh(ET_ChiNhanh chinhanh)
         {
             try
             {
-                DanhMuc dm = new DanhMuc
+                ChiNhanh cn = new ChiNhanh
                 {
-                    maDM = danhMuc.MaDM,
-                    tenDM = danhMuc.TenDM,
-                    ghiChu = danhMuc .GhiChu
+                    maCN = chinhanh.MaCN,
+                    tenCN = chinhanh.TenCN,
+                    diaChi = chinhanh.DiaChi
                 };
-                data.Data.DanhMucs.InsertOnSubmit(dm);
-            }catch (Exception ex)
+                data.Data.ChiNhanhs.InsertOnSubmit(cn);
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -41,15 +42,16 @@ namespace QLNS_DAL
             return true;
         }
         //Xoa danh muc
-        public bool XoaDanhMuc(ET_DanhMuc danhMuc)
+        public bool XoaThemChiNhanh(ET_ChiNhanh chinhanh)
         {
             try
             {
-                var list = from item in data.Data.DanhMucs where item.maDM == danhMuc.MaDM
+                var list = from item in data.Data.ChiNhanhs
+                           where item.maCN == chinhanh.MaCN
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.DanhMucs.DeleteOnSubmit(item);
+                    data.Data.ChiNhanhs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -63,14 +65,15 @@ namespace QLNS_DAL
             return true;
         }
         //Sua danh muc
-        public bool SuaDanhMuc(ET_DanhMuc danhMuc)
+        public bool SuaChiNhanh(ET_ChiNhanh chinhanh)
         {
             try
             {
-                var suaDM = data.Data.DanhMucs.Single(DanhMuc => DanhMuc.maDM == danhMuc.MaDM);
-                suaDM.tenDM = danhMuc.TenDM;
-                suaDM.ghiChu = danhMuc.GhiChu;
-            }catch(Exception ex)
+                var suaDM = data.Data.ChiNhanhs.Single(ChiNhanh => ChiNhanh.maCN == chinhanh.MaCN);
+                suaDM.tenCN = chinhanh.TenCN;
+                suaDM.diaChi = chinhanh.DiaChi;
+            }
+            catch (Exception ex)
             {
                 return false;
             }
