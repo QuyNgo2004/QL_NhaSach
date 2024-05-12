@@ -18,6 +18,33 @@ namespace QLNS_DAL
 
             return ds;
         }
+        public IQueryable LoadHoaDonTheoNgay(DateTime date)
+        {
+
+            IQueryable ds = from item in data.Data.HoaDons
+                            where item.ngayHD == date
+                            select new
+                            {
+                                maHD = item.maHD,
+                                MaNV = item.maNV,
+                                MaKH = item.maKH,
+                                TổngHD = item.tongHD
+                            };
+
+            return ds;
+        }
+        public int HoaDonMoiTao()
+        {
+             
+            IQueryable ds = (from hd in data.Data.HoaDons
+                             orderby hd.maHD descending 
+                            select new ET_HoaDon { MaHD = hd.maHD }).Take(1);
+            foreach (ET_HoaDon hd in ds)
+            {
+                return hd.MaHD;
+            }
+            return 0;
+        }
         //Them danh muc
         public bool ThemHoaDon(ET_HoaDon hDon)
         {
@@ -25,10 +52,10 @@ namespace QLNS_DAL
             {
                 HoaDon hd = new HoaDon
                 {
-                    maKH = hDon.MaKH.MaKH,
-                    maNV =hDon.MaNV.MaNV,
+                    /*maKH = hDon.MaKH.MaKH,
+                    maNV =hDon.MaNV.MaNV,*/
                     ngayHD = hDon.NgayHD,
-                    tongHD = 0,
+                    //tongHD = 0,
                 };
                 data.Data.HoaDons.InsertOnSubmit(hd);
             }
@@ -68,19 +95,12 @@ namespace QLNS_DAL
         //Sua danh muc
         public bool SuaHoaDon(ET_HoaDon hDon)
         {
-            DAL_CTHoaDon cTHoaDon = new DAL_CTHoaDon();
-            IQueryable CT = cTHoaDon.LoadCTHoaDon(hDon.MaHD);
-            float TongTien = 0;
-            foreach (ET_CTHoaDon item in CT)
-            {
-                TongTien +=item.TTien;
-            }
             try
             {
                 var suaDM = data.Data.HoaDons.Single(DanhMuc => DanhMuc.maHD == hDon.MaHD);
                 suaDM.maKH = hDon.MaKH.MaKH;
                 suaDM.maNV = hDon.MaNV.MaNV;
-                suaDM.tongHD = TongTien;
+                suaDM.tongHD = hDon.TongHD;
             }
             catch (Exception ex)
             {

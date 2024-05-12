@@ -9,7 +9,7 @@ namespace QLNS_ET
     public class ET_NhanVien
     {
         private string maNV, tenNV, diaChi, sDT, chucVu, gioiTinh;
-        private DateTime ngaySinh, ngayTao;
+        private DateTime ngaySinh, ngayTao = DateTime.Now;
         private ET_ChiNhanh maCN;
 
         public ET_NhanVien()
@@ -26,7 +26,7 @@ namespace QLNS_ET
             this.ChucVu = chucVu;
             this.GioiTinh = gioiTinh;
             this.NgaySinh = ngaySinh;
-            this.NgayTao = DateTime.Now;
+            
             this.MaCN = maCN;
         }
 

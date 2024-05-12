@@ -14,7 +14,7 @@ namespace QLNS_DAL
     {
         string serveName = "" ;
         string conection = "";
-        QLNhaSachDataContext data ;
+        QLNhaSachDataContext data = new QLNhaSachDataContext() ;
         public DAL_DATA()
         {
         }
@@ -39,20 +39,20 @@ namespace QLNS_DAL
                 {
                     ServeName = e.Value;
                 }
-          
-                Conection = @"Data Source="+ServeName+";Initial Catalog=QLNhaSach;Integrated Security=True;TrustServerCertificate=True";
+
+                Conection = @"Data Source=" + ServeName + ";Initial Catalog=QLNhaSach;Integrated Security=True;TrustServerCertificate=True";
                 SqlConnection sqlConnection = new SqlConnection(conection);
                 sqlConnection.Open();
 
-                data = new QLNhaSachDataContext();
-        }
-            catch(Exception ex)
+               
+                }
+            catch (Exception ex)
             {
-                
-               return false;
+
+                return false;
             }
-          
-            
+
+
             return true;
                  
         }

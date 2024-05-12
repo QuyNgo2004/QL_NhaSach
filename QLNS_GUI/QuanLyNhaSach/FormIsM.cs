@@ -29,10 +29,12 @@ namespace QLNS_GUI
         {
             
             form.TopLevel = false;
+            formDialog.Controls.Clear();
             formDialog.Controls.Add(form);
             form.Dock = DockStyle.Fill;
             form.Show();
         }
+        
         private void danhSáchSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormSanPham form = new FormSanPham();
@@ -45,6 +47,60 @@ namespace QLNS_GUI
             {
                 this.Close();
             }
+        }
+
+        private void chiNhánhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChiNhanh form = new FormChiNhanh();
+            LoadForm(form);
+        }
+
+        private void danhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNhanVien form = new FormNhanVien();
+            LoadForm(form);
+        }
+
+        private void danhSáchNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNhaCungCap form = new FormNhaCungCap();
+            LoadForm(form);
+        }
+
+        private void chiTiếtCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCTCungCap form = new FormCTCungCap();
+            LoadForm(form);
+        }
+
+        private void kháchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormKhachHang form = new FormKhachHang();
+            LoadForm(form);
+        }
+
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThanhToan form = new FormThanhToan();
+            LoadForm(form);
+        }
+
+        private void danhSáchHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDSHoaDon form = new FormDSHoaDon();
+            LoadForm(form);
+        }
+
+        private void hìnhThứcKhuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHTKhyenMai form = new FormHTKhyenMai();
+            LoadForm(form);
+        }
+
+        private void danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSPKhuyenMai form = new FormSPKhuyenMai();
+            LoadForm(form);
         }
     }
 }

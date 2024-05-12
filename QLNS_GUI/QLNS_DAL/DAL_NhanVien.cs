@@ -14,7 +14,9 @@ namespace QLNS_DAL
         public IQueryable LoadNhanVien()
         {
 
-            IQueryable ds = from item in data.Data.NhanViens select item;
+            IQueryable ds = from item in data.Data.NhanViens
+                            join cn in data.Data.ChiNhanhs on item.maCN equals cn.maCN                            
+                            select new {item.MANV,item.HOTENNV,item.DIACHINV,item.SDT,item.NGAYSINH,item.CHUCVU,item.GIOITINH,cn.tenCN,item.CREATED_DATE_NV};
 
             return ds;
         }

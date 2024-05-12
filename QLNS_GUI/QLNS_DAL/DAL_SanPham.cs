@@ -10,6 +10,9 @@ namespace QLNS_DAL
     public class DAL_SanPham
     {
         DAL_DATA data = new DAL_DATA();
+        
+       
+
         //Load san pham
         public IQueryable LoadSanPham()
         {
@@ -18,7 +21,9 @@ namespace QLNS_DAL
                             on tl.maTL equals tloai.maTL
                             join dv in data.Data.DonVis
                             on tl.maDV equals dv.maDV
-                            select new { MãSP = tl.maSP, TênSP = tl.tenSP,NhàCC = tl.maNCC,
+                            join ncc  in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            where tl.tangKem == 1
+                            select new { MãSP = tl.maSP, TênSP = tl.tenSP,/*NhàCC = ncc.tenNCC,*/
                                          ThểLoại = tloai.tenTL,ĐơnGiá = tl.giaSP,ĐơnVị = dv.donVi1,
                                          SLTồnKho = tl.SLTonKho,LàQuàTặng = tl.tangKem};
 
@@ -35,12 +40,13 @@ namespace QLNS_DAL
                             on tl.maDV equals dv.maDV
                             join dm in data.Data.DanhMucs
                             on tloai.maDM equals dm.maDM
-                            where dm.maDM == maDM
+                            join ncc in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            where dm.maDM == maDM && tl.tangKem == 1    
                             select new
                             {
                                 MãSP = tl.maSP,
                                 TênSP = tl.tenSP,
-                                NhàCC = tl.maNCC,
+                                /*NhàCC = ncc.tenNCC,*/
                                 ThểLoại = tloai.tenTL,
                                 ĐơnGiá = tl.giaSP,
                                 ĐơnVị = dv.donVi1,
@@ -53,8 +59,14 @@ namespace QLNS_DAL
         //Them san pham
         public bool ThemSanPham(ET_SanPham SanPham)
         {
+
+            /*if (SuaSanPham(SanPham))
+            {
+                return true;
+            }*/
             try
             {
+
                 SanPham tl = new SanPham
                 {
                     tenSP = SanPham.TenSP,
@@ -63,7 +75,7 @@ namespace QLNS_DAL
                     giaSP = SanPham.GiaSP,
                     maDV = SanPham.MaDV.MaDV,
                     SLTonKho =SanPham.SLTonKho,
-                   
+                    tangKem = SanPham.TKem
                 };
                 data.Data.SanPhams.InsertOnSubmit(tl);
             }
@@ -78,17 +90,21 @@ namespace QLNS_DAL
             return true;
         }
         //Xoa san pham
-        public bool XoaSanPham(ET_SanPham SanPham)
+        public bool XoaSanPham(ET_SanPham sp)
         {
             try
             {
+
                 var list = from item in data.Data.SanPhams
-                           where item.maSP == SanPham.MaSP
+                           where item.maSP == sp.MaSP
                            select item;
-                foreach (var item in list)
-                {
-                    data.Data.SanPhams.DeleteOnSubmit(item);
-                }
+                    
+                    foreach (var item in list)
+                    {
+                        data.Data.SanPhams.DeleteOnSubmit(item);
+                    }
+                
+
             }
             catch (Exception ex)
             {
@@ -99,7 +115,9 @@ namespace QLNS_DAL
                 data.Data.SubmitChanges();
             }
             return true;
-        }
+            }
+
+
         //Sua san pham
         public bool SuaSanPham(ET_SanPham sp)
         {
@@ -112,7 +130,7 @@ namespace QLNS_DAL
                 suaTL.maDV = sp.MaDV.MaDV;
                 suaTL.giaSP = sp.GiaSP;
                 suaTL.SLTonKho = sp.SLTonKho;
-                suaTL.tangKem = sp.TKem;
+                suaTL.tangKem = 1;
             }
             catch (Exception ex)
             {
@@ -120,6 +138,49 @@ namespace QLNS_DAL
             }
             finally { data.Data.SubmitChanges(); }
             return true;
+        }
+        public bool SuaSLSanPham(int SL,int MaSP)
+        {
+            try
+            {
+                var suaTL = data.Data.SanPhams.Single(SanPham => SanPham.maSP == MaSP);
+                if(suaTL.SLTonKho + SL >= 0)
+                {
+                    suaTL.SLTonKho += SL;
+                }
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally { data.Data.SubmitChanges(); }
+            return true;
+        }
+        public IQueryable TimMaSanPham(int MaSP)
+        {
+            IQueryable ds = from tl in data.Data.SanPhams
+                            join tloai in data.Data.TheLoais
+                            on tl.maTL equals tloai.maTL
+                            join dv in data.Data.DonVis
+                            on tl.maDV equals dv.maDV
+                            join dm in data.Data.DanhMucs
+                            on tloai.maDM equals dm.maDM
+                            join ncc in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            where tl.maSP == MaSP && tl.tangKem == 1
+                            select new
+                            {
+                                MãSP = tl.maSP,
+                                TênSP = tl.tenSP,
+                                NhàCC = ncc.tenNCC,
+                                ThểLoại = tloai.tenTL,
+                                ĐơnGiá = tl.giaSP,
+                                ĐơnVị = dv.donVi1,
+                                SLTồnKho = tl.SLTonKho,
+                                //LàQuàTặng = tl.tangKem
+                            };
+
+            return ds;
         }
     }
 }

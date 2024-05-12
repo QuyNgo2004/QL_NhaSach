@@ -1,9 +1,11 @@
 ﻿using QLNS_ET;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace QLNS_DAL
 {
@@ -23,6 +25,7 @@ namespace QLNS_DAL
                             select new
                             {
                                 MãCT = item.maCTKM,
+                                MãSP = item.maSP,
                                 SPKhuyếnMãi = sp.tenSP,
                                 TênKM = km.tenKM,
                                 NgàyBD = item.ngayBD,
@@ -31,15 +34,68 @@ namespace QLNS_DAL
 
             return ds;
         }
+        //Load chi tiet khuyen mai theo ma sp
+        public IQueryable LoadCTKhuyenMai(int maSP)
+        {
+
+            IQueryable ds = from item in data.Data.CTKhuyenMais
+                            join km in data.Data.KhuyenMais
+                            on item.maKM equals km.maKM
+
+                            join sp in data.Data.SanPhams
+                            on item.maSP equals sp.maSP 
+                            where item.maSP == maSP && item.ngayBD < DateTime.Now && item.ngayKT > DateTime.Now
+                            select new 
+                            {
+                                maCTKM = item.maCTKM,
+                                tenSP = sp.tenSP,
+                                KhuyenMai = item.KhuyenMai,
+                                GiamGia = km.giamGia,
+                                ngayBD = item.ngayBD,
+                                ngayKT = item.ngayKT
+                            };
+            
+            return ds;
+        }
+        // Ham kiem tra thoi gian trung lap
+        static bool CheckOverlap((DateTime, DateTime) cu, (DateTime, DateTime) moi)
+        {
+           /* if(cu.Item1 >= moi.Item1 && moi.Item1 <= cu.Item2)
+            {
+                return false;
+            }*/
+           /* else if(cu.Item1 >= moi.Item2 &&  moi.Item2 <= cu.Item2)
+            {
+                return false;
+            }*/
+           /* else if (cu.Item1 <= moi.Item1 && moi.Item2 >= cu.Item2)
+            {
+                return false;
+            }*/
+            return true;
+        }
         //Them CTKhuyenMai
         public bool ThemCTKhuyenMai(ET_CTKhuyenMai km)
         {
             try
             {
-                CTKhuyenMai dm = new CTKhuyenMai
+               /* IQueryable<CTKhuyenMai> dsSP = LoadCTKhuyenMai(km.MaSP.MaSP);
+                foreach (CTKhuyenMai item in dsSP)
+                {
+                    ET_CTKhuyenMai ctkm = new ET_CTKhuyenMai {
+                        NgayBD = DateTime.Parse(item.ngayBD.ToString()),
+                        NgayKT = DateTime.Parse(item.ngayBD.ToString())
+                    };
+                   *//* if (CheckOverlap( (ctkm.NgayBD, ctkm.NgayKT), (km.NgayBD, km.NgayKT)))
+                    {
+                        return false;
+                    }*//*
+                }*/
+                    CTKhuyenMai dm = new CTKhuyenMai
                 {
                     maKM = km.MaKM.MaKM,
                     maSP = km.MaSP.MaSP,
+                    tenSP = km.MaSP.TenSP,
                     ngayBD = km.NgayBD,
                     ngayKT = km.NgayKT
                 };

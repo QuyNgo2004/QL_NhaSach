@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6469FE2E-9C8A-4C59-A09F-466C2D66B9FC}</ProjectGuid>
+    <ProjectGuid>{8B2A9CBC-B933-4BD5-8950-AEDE99109D7D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QLNS_DAL</RootNamespace>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -70,6 +69,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QLNS_ET\QLNS_ET.csproj">
+      <Project>{e6ba01ff-178a-48a1-8216-197938b65df9}</Project>
+      <Name>QLNS_ET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -86,12 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QLNS_ET\QLNS_ET.csproj">
-      <Project>{e6ba01ff-178a-48a1-8216-197938b65df9}</Project>
-      <Name>QLNS_ET</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

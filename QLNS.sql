@@ -60,6 +60,10 @@ create table NhaCCCT(
 maCTNCC INT IDENTITY(1,1) ,
 maNCC varchar(20) foreign key references NhaCC(maNCC),
 maSP INT foreign key references SanPham(maSP),
+--Them 
+tenSP nvarchar(50),
+tenNCC nvarchar(50),
+
 ngayCC datetime,
 soLuong int ,
 ghiChu nvarchar(200),
@@ -76,6 +80,8 @@ maSP INT --Qua tang kem )
 create table CTKhuyenMai(
 maCTKM INT IDENTITY(1,1),
 maSP INT foreign key references SanPham(maSP) ,
+--Them 
+tenSP nvarchar(50),
 maKM varchar(20) foreign key references KhuyenMai(maKM),
 ngayBD dateTime,
 ngayKT dateTime,
@@ -85,7 +91,7 @@ CREATE TABLE NhanVien (
 MANV CHAR(15) primary key,
 HOTENNV NVARCHAR(255) NOT NULL,
 DIACHINV NVARCHAR(100),
-SDT varchar NULL,
+SDT varchar(50) NULL,
 NGAYSINH DATE NOT NULL,
 CHUCVU NVARCHAR(50),
 maCN varchar(20) foreign key references ChiNhanh(maCN),
@@ -102,6 +108,8 @@ tongHD float)
 create table CTHoaDon(
 maCTHD INT IDENTITY(1,1) ,
 maHD int foreign key references HoaDon(maHD),
+--Them 
+tenSP nvarchar(50),
 maSP int foreign key references SanPham(maSP),
 SL int,
 TTien float

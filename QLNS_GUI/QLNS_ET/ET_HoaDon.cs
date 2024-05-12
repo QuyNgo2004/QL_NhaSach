@@ -16,14 +16,16 @@ namespace QLNS_ET
 
         public ET_HoaDon()
         {
+            maNV = new ET_NhanVien();
+            maKH = new ET_KhachHang();
+            ngayHD = DateTime.Now.Date;
         }
 
-        public ET_HoaDon(int maHD, ET_NhanVien maNV, ET_KhachHang maKH, DateTime ngayHD, float tongHD)
+        public ET_HoaDon(int maHD, ET_NhanVien maNV, ET_KhachHang maKH, float tongHD)
         {
             this.MaHD = maHD;
             this.MaNV = maNV;
             this.MaKH = maKH;
-            this.NgayHD = ngayHD;
             this.TongHD = tongHD;
         }
 

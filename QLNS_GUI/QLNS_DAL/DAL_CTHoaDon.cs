@@ -16,7 +16,12 @@ namespace QLNS_DAL
 
             IQueryable ds = from item in data.Data.CTHoaDons 
                             where item.maHD == maHD
-                            select item;
+                            select new
+                            {
+                                TênSP = item.tenSP,
+                                SốLượng= item.SL,
+                                ThànhTiền = item.TTien
+                            };
 
             return ds;
         }
@@ -29,6 +34,7 @@ namespace QLNS_DAL
                 {
                     maHD = CTHoaDon.MaHD.MaHD,
                     maSP = CTHoaDon.MaSP.MaSP,
+                    tenSP = CTHoaDon.MaSP.TenSP,
                     SL = CTHoaDon.SLuong,
                     TTien = CTHoaDon.TTien,
                 };

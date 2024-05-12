@@ -14,7 +14,8 @@ namespace QLNS_DAL
         public IQueryable LoadDanhMuc()
         {
             
-           IQueryable ds = from item in data.Data.DanhMucs select item;
+           IQueryable ds = from item in data.Data.DanhMucs 
+                           select item;
            
             return ds;
         }

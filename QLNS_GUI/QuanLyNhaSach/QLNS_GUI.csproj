@@ -56,11 +56,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormChiNhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiNhanh.Designer.cs">
+      <DependentUpon>FormChiNhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCTCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCTCungCap.Designer.cs">
+      <DependentUpon>FormCTCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDSHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDSHoaDon.Designer.cs">
+      <DependentUpon>FormDSHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHTKhyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHTKhyenMai.Designer.cs">
+      <DependentUpon>FormHTKhyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormIsM.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormIsM.Designer.cs">
       <DependentUpon>FormIsM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhachHang.Designer.cs">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhaCungCap.Designer.cs">
+      <DependentUpon>FormNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSanPham.cs">
       <SubType>Form</SubType>
@@ -74,16 +116,55 @@
     <Compile Include="FormServe.Designer.cs">
       <DependentUpon>FormServe.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSPKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSPKhuyenMai.Designer.cs">
+      <DependentUpon>FormSPKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThanhToan.Designer.cs">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormChiNhanh.resx">
+      <DependentUpon>FormChiNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCTCungCap.resx">
+      <DependentUpon>FormCTCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDSHoaDon.resx">
+      <DependentUpon>FormDSHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHTKhyenMai.resx">
+      <DependentUpon>FormHTKhyenMai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormIsM.resx">
       <DependentUpon>FormIsM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhachHang.resx">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhaCungCap.resx">
+      <DependentUpon>FormNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSanPham.resx">
       <DependentUpon>FormSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormServe.resx">
       <DependentUpon>FormServe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSPKhuyenMai.resx">
+      <DependentUpon>FormSPKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThanhToan.resx">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

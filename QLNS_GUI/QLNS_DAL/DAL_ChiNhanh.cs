@@ -42,7 +42,7 @@ namespace QLNS_DAL
             return true;
         }
         //Xoa danh muc
-        public bool XoaThemChiNhanh(ET_ChiNhanh chinhanh)
+        public bool XoaChiNhanh(ET_ChiNhanh chinhanh)
         {
             try
             {

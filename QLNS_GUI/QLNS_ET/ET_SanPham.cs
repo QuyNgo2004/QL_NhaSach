@@ -9,18 +9,16 @@ namespace QLNS_ET
     public class ET_SanPham
     {
         private string tenSP;
-        private ET_TheLoai maTL;
-        private ET_NhaCC maNCC;
-        private ET_DonVi  maDV;
+        private ET_TheLoai maTL = new ET_TheLoai();
+        private ET_NhaCC maNCC = new ET_NhaCC();
+        private ET_DonVi  maDV = new ET_DonVi();
         private int tKem;
         private float giaSP;
         private int sLTonKho, maSP;
 
         public ET_SanPham()
         {
-            MaTL = new ET_TheLoai();
-            MaNCC = new ET_NhaCC();
-            MaDV = new ET_DonVi();
+           
         }
 
         public ET_SanPham(int maSP, string maTL, string tenSP, string maNCC, int maDV, bool tKem, float giaSP, int sLTonKho)

@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    internal class DAL_KhuyenMai
+    public class DAL_KhuyenMai
     {
         DAL_DATA data = new DAL_DATA();
 
         public IQueryable LoadKhuyenMai()
         {
             IQueryable km = from dv in data.Data.KhuyenMais
-                            join sp in data.Data.SanPhams
-                            on dv.maSP equals sp.maSP
-                            select new { MãKM = dv.maKM,TênKM = dv.tenKM,GiảmGiá = dv.giamGia,sp.tenSP };
+                           
+                            select new { MãKM = dv.maKM,TênKM = dv.tenKM,GiảmGiá = dv.giamGia };
             return km;
         }
         
@@ -29,8 +28,7 @@ namespace QLNS_DAL
                 {
                     maKM = km.MaKM,
                     tenKM = km.TenKM,
-                    giamGia = km.GiamGia,
-                    maSP = km.MaSP.MaSP
+                    giamGia = km.GiamGia
                 };
                 data.Data.KhuyenMais.InsertOnSubmit(dv);
             }
@@ -76,7 +74,6 @@ namespace QLNS_DAL
                 suadv.maKM = km.MaKM;
                 suadv.tenKM = km.TenKM;
                 suadv.giamGia = km.GiamGia;
-                suadv.maSP = km.MaSP.MaSP;
             }
             catch (Exception ex)
             {

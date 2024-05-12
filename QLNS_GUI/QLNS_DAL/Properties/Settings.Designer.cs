@@ -26,11 +26,11 @@ namespace QLNS_DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QLNhaSach;Integrated Security=True;Tru" +
-            "stServerCertificate=True")]
-        public string QLNhaSachConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QLNS;Integrated Security=True;TrustSer" +
+            "verCertificate=True")]
+        public string QLNSConnectionString {
             get {
-                return ((string)(this["QLNhaSachConnectionString"]));
+                return ((string)(this["QLNSConnectionString"]));
             }
         }
     }
