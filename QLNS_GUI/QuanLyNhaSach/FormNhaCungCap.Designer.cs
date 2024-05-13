@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenBO = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,17 +40,20 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnLamMoi = new System.Windows.Forms.Button();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenBO.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -67,18 +70,18 @@
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // txtTen
+            // txtTenBO
             // 
-            this.txtTen.Location = new System.Drawing.Point(2390, 110);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(244, 22);
-            this.txtTen.TabIndex = 0;
+            this.txtTenBO.Location = new System.Drawing.Point(2390, 110);
+            this.txtTenBO.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTenBO.Name = "txtTenBO";
+            this.txtTenBO.Size = new System.Drawing.Size(244, 22);
+            this.txtTenBO.TabIndex = 0;
             // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(2110, 122);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(107, 16);
             this.labelControl2.TabIndex = 1;
@@ -90,10 +93,12 @@
             this.panel1.Controls.Add(this.txtGhiChu);
             this.panel1.Controls.Add(this.txtMa);
             this.panel1.Controls.Add(this.txtSDT);
+            this.panel1.Controls.Add(this.txtTen);
             this.panel1.Controls.Add(this.txtDiaChi);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.btnLamMoi);
+            this.panel1.Controls.Add(this.labelControl4);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.labelControl7);
             this.panel1.Controls.Add(this.btnSua);
@@ -116,7 +121,7 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(216, 285);
+            this.txtGhiChu.Location = new System.Drawing.Point(216, 342);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(305, 22);
             this.txtGhiChu.TabIndex = 62;
@@ -124,31 +129,31 @@
             // txtMa
             // 
             this.txtMa.Location = new System.Drawing.Point(216, 110);
-            this.txtMa.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.txtMa.Margin = new System.Windows.Forms.Padding(8);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(305, 22);
             this.txtMa.TabIndex = 50;
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(216, 222);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.txtSDT.Location = new System.Drawing.Point(216, 279);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(8);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(305, 22);
             this.txtSDT.TabIndex = 51;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(216, 168);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.txtDiaChi.Location = new System.Drawing.Point(216, 225);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(8);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(305, 22);
             this.txtDiaChi.TabIndex = 52;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(139, 291);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl3.Location = new System.Drawing.Point(139, 348);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(8);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(47, 16);
             this.labelControl3.TabIndex = 53;
@@ -157,7 +162,7 @@
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(84, 116);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(8);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(102, 16);
             this.labelControl1.TabIndex = 54;
@@ -165,7 +170,7 @@
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(446, 349);
+            this.btnLamMoi.Location = new System.Drawing.Point(446, 383);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
             this.btnLamMoi.TabIndex = 58;
@@ -173,10 +178,19 @@
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(139, 285);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(10);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(29, 16);
+            this.labelControl5.TabIndex = 56;
+            this.labelControl5.Text = "SDT:";
+            // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(138, 174);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.labelControl7.Location = new System.Drawing.Point(138, 231);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(8);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(48, 16);
             this.labelControl7.TabIndex = 56;
@@ -184,7 +198,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(332, 349);
+            this.btnSua.Location = new System.Drawing.Point(332, 383);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 59;
@@ -194,7 +208,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(220, 349);
+            this.btnXoa.Location = new System.Drawing.Point(220, 383);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 60;
@@ -204,7 +218,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(103, 349);
+            this.btnThem.Location = new System.Drawing.Point(103, 383);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 61;
@@ -212,14 +226,22 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // labelControl5
+            // labelControl4
             // 
-            this.labelControl5.Location = new System.Drawing.Point(139, 228);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(29, 16);
-            this.labelControl5.TabIndex = 56;
-            this.labelControl5.Text = "SDT:";
+            this.labelControl4.Location = new System.Drawing.Point(84, 174);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(8);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(102, 16);
+            this.labelControl4.TabIndex = 56;
+            this.labelControl4.Text = "Tên nhà cung cấp";
+            // 
+            // txtTen
+            // 
+            this.txtTen.Location = new System.Drawing.Point(216, 171);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(8);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(305, 22);
+            this.txtTen.TabIndex = 52;
             // 
             // FormNhaCungCap
             // 
@@ -228,19 +250,20 @@
             this.ClientSize = new System.Drawing.Size(1111, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtTen);
+            this.Controls.Add(this.txtTenBO);
             this.Controls.Add(this.labelControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNhaCungCap";
             this.Text = "FormNhaCungCap";
             this.Load += new System.EventHandler(this.FormNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenBO.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +271,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraEditors.TextEdit txtTenBO;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
@@ -264,5 +287,7 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

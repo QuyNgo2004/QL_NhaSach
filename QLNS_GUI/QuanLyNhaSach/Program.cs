@@ -19,7 +19,7 @@ namespace QuanLyNhaSach
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormServe());
+            Application.Run(new FormIsM());
         }
     }
 }
