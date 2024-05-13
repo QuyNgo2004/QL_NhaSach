@@ -44,7 +44,7 @@ namespace QLNS_GUI
                     // Lay duong dan tuyet doi
 
                     string relativePath = System.IO.Path.Combine(Application.StartupPath);
-                    relativePath = relativePath.Replace(@"bin\Debug", "");
+                    //relativePath = relativePath.Replace(@"bin\Debug", "");
                     //MessageBox.Show(relativePath.ToString());
                     // Load file Crystal Report (.rpt)
                     reportDocument.Load(relativePath + @"\Report\HoaDonTheoThang.rpt");

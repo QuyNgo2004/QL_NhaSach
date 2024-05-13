@@ -25,4 +25,4 @@ where MONTH(HD.ngayHD) = @Thang and YEAR(HD.ngayHD) = Year(GETDATE())
 end
 go
 
-exec HoaDonTheoThang @Thang = '5'
+--exec HoaDonTheoThang @Thang = '5'

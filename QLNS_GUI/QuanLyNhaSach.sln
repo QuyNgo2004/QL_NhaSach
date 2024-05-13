@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS_ET", "QLNS_ET\QLNS_ET.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS_DAL", "QLNS_DAL\QLNS_DAL.csproj", "{8B2A9CBC-B933-4BD5-8950-AEDE99109D7D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{EA591261-6BE2-4AB4-B38C-03DB78FDDF88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{8B2A9CBC-B933-4BD5-8950-AEDE99109D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B2A9CBC-B933-4BD5-8950-AEDE99109D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B2A9CBC-B933-4BD5-8950-AEDE99109D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA591261-6BE2-4AB4-B38C-03DB78FDDF88}.Debug|Any CPU.ActiveCfg = Debug
+		{EA591261-6BE2-4AB4-B38C-03DB78FDDF88}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

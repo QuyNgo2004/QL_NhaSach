@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtTenSPTY = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.cboDV = new System.Windows.Forms.ComboBox();
@@ -53,7 +51,6 @@
             this.txtTenSP = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenSPTY.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaSP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
@@ -74,23 +71,7 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // txtTenSPTY
-            // 
-            this.txtTenSPTY.Location = new System.Drawing.Point(2368, 235);
-            this.txtTenSPTY.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtTenSPTY.Name = "txtTenSPTY";
-            this.txtTenSPTY.Size = new System.Drawing.Size(244, 22);
-            this.txtTenSPTY.TabIndex = 0;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(2148, 240);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(87, 16);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Tên sản phẩm:";
+           
             // 
             // panel1
             // 
@@ -311,14 +292,11 @@
             this.ClientSize = new System.Drawing.Size(1942, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtTenSPTY);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSanPham";
             this.Text = "FormSanPham";
             this.Load += new System.EventHandler(this.FormSanPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenSPTY.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaSP.Properties)).EndInit();
@@ -331,8 +309,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraEditors.TextEdit txtTenSPTY;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboDV;

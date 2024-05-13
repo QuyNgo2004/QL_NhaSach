@@ -1,5 +1,5 @@
-﻿--create database QLNhaSach
-use QLNhaSach
+﻿create database QLNS
+use QLNS
 --drop database QLNhaSach
 go
 SET DATEFORMAT dmy;

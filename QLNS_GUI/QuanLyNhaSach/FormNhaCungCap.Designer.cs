@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtTenBO = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenBO.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
@@ -69,23 +67,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(410, 450);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // txtTenBO
-            // 
-            this.txtTenBO.Location = new System.Drawing.Point(2390, 110);
-            this.txtTenBO.Margin = new System.Windows.Forms.Padding(6);
-            this.txtTenBO.Name = "txtTenBO";
-            this.txtTenBO.Size = new System.Drawing.Size(244, 22);
-            this.txtTenBO.TabIndex = 0;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(2110, 122);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(6);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(107, 16);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Tên nhà cung cấp:";
+           
             // 
             // panel1
             // 
@@ -250,14 +232,11 @@
             this.ClientSize = new System.Drawing.Size(1111, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtTenBO);
-            this.Controls.Add(this.labelControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNhaCungCap";
             this.Text = "FormNhaCungCap";
             this.Load += new System.EventHandler(this.FormNhaCungCap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenBO.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMa.Properties)).EndInit();
@@ -271,8 +250,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraEditors.TextEdit txtTenBO;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtGhiChu;
