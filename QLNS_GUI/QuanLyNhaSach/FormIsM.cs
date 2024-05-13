@@ -13,6 +13,7 @@ namespace QLNS_GUI
 {
     public partial class FormIsM : Form
     {
+        FormDangNhap dn = new FormDangNhap();
         public FormIsM()
         {
             InitializeComponent();
@@ -20,10 +21,27 @@ namespace QLNS_GUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Bounds = Screen.PrimaryScreen.Bounds;
         }
-
+        void XetChucVu()
+        {
+            if(txtChucVu.Text == "NV")
+            {
+                sảnPhẩmToolStripMenuItem.Visible = false;
+                nhàCungCấpToolStripMenuItem.Visible = false;
+                nhânViênToolStripMenuItem.Visible = false;
+            }
+        }
         private void FormIsM_Load(object sender, EventArgs e)
         {
-
+            dn.ShowDialog();
+            try
+            {
+                txtMaNV.Text = dn.nv.MaNV.ToString();
+                txtTenNV.Text = dn.nv.TenNV.ToString();
+                txtChucVu.Text = dn.nv.ChucVu.ToString();
+            }catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            XetChucVu();
         }
         void LoadForm(Form form)
         {
@@ -57,7 +75,7 @@ namespace QLNS_GUI
 
         private void danhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormNhanVien form = new FormNhanVien();
+            FormNhanVien form = new FormNhanVien(txtMaNV.Text);
             LoadForm(form);
         }
 
@@ -81,7 +99,7 @@ namespace QLNS_GUI
 
         private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormThanhToan form = new FormThanhToan();
+            FormThanhToan form = new FormThanhToan(txtMaNV.Text);
             LoadForm(form);
         }
 
@@ -100,6 +118,18 @@ namespace QLNS_GUI
         private void danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormSPKhuyenMai form = new FormSPKhuyenMai();
+            LoadForm(form);
+        }
+
+        private void btnDMK_Click(object sender, EventArgs e)
+        {
+            FormDoiMatKhau form = new FormDoiMatKhau(txtMaNV.Text);
+            form.ShowDialog();
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReport form = new FormReport(txtTenNV.Text);
             LoadForm(form);
         }
     }

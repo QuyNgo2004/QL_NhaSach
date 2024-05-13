@@ -51,12 +51,12 @@ namespace QLNS_DAL
             return true;
         }
         //Xoa danh muc
-        public bool XoaCTHoaDon(ET_CTHoaDon CTHD)
+        public bool XoaCTHoaDon(int maHD)
         {
             try
             {
                 var list = from item in data.Data.CTHoaDons
-                           where item.maCTHD == CTHD.MaCTHD
+                           where item.maHD == maHD
                            select item;
                 foreach (var item in list)
                 {

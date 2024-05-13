@@ -15,11 +15,27 @@ namespace QLNS_GUI
     public partial class FormNhaCungCap : Form
     {
         BUS_NhaCungCap nhaCungCap = new BUS_NhaCungCap();
+        BUS_KTLoi ktLoi = new BUS_KTLoi();
         public FormNhaCungCap()
         {
             InitializeComponent();
         }
-
+        ET_NhaCC LayNCC()
+        {
+            if (!ktLoi.KTSoDT(txtSDT.Text))
+            {
+                return null;
+            }
+            ET_NhaCC ncc = new ET_NhaCC
+            {
+                MaNCC = txtMa.Text,
+                TenNCC = txtTen.Text,
+                DiaChi = txtDiaChi.Text,
+                SDT = txtSDT.Text,
+                GhiChu = txtGhiChu.Text,
+            };
+            return ncc;
+        }
        void LoadForm()
         {
             dataGridView1.DataSource = nhaCungCap.LoadNhaCC();
@@ -41,15 +57,8 @@ namespace QLNS_GUI
         {
             try
             {
-                ET_NhaCC ncc = new ET_NhaCC
-                {
-                    MaNCC = txtMa.Text,
-                    TenNCC = txtTen.Text,
-                    DiaChi = txtDiaChi.Text,
-                    SDT = txtSDT.Text,
-                    GhiChu = txtGhiChu.Text,
-                };
-                if (nhaCungCap.ThemNhaCC(ncc))
+                ET_NhaCC ncc = LayNCC();
+                if (ncc != null && nhaCungCap.ThemNhaCC(ncc))
                 {
                     MessageBox.Show("Thêm nhà cung cấp thành công!", "Thông báo");
 
@@ -99,17 +108,10 @@ namespace QLNS_GUI
         {
             try
             {
-                ET_NhaCC ncc = new ET_NhaCC
-                {
-                    MaNCC = txtMa.Text,
-                    TenNCC = txtTen.Text,
-                    DiaChi = txtDiaChi.Text,
-                    SDT = txtSDT.Text,
-                    GhiChu = txtGhiChu.Text,
-                };
+                ET_NhaCC ncc = LayNCC();
                 if (MessageBox.Show("Bạn có muốn sửa nhà cung cấp này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (nhaCungCap.SuaNhaCC(ncc))
+                    if (ncc != null && nhaCungCap.SuaNhaCC(ncc))
                     {
                         MessageBox.Show("Sửa nhà cung cấp thành công!", "Thông báo");
 

@@ -16,14 +16,23 @@ namespace QLNS_GUI
     {
         BUS_NhanVien nhanVien = new BUS_NhanVien();
         BUS_ChiNhanh chiNhanh = new BUS_ChiNhanh();
+        BUS_HoaDon hoaDon= new BUS_HoaDon();
+        BUS_TaiKhoan tk = new BUS_TaiKhoan();
+        BUS_KTLoi kTLoi = new BUS_KTLoi();
+        string NV;
         string[] chucNang = new string[2] {"QL","NV"};
         
-        public FormNhanVien()
+        public FormNhanVien(string maNV)
         {
             InitializeComponent();
+            NV = maNV;
         }
         ET_NhanVien LayNhanVien()
         {
+            if (!kTLoi.KTSoDT(txtSDT.Text))
+            {
+                return null;
+            }
             ET_NhanVien nv = new ET_NhanVien
             {
                 MaNV = txtMa.Text,
@@ -76,7 +85,7 @@ namespace QLNS_GUI
             try
             {
                 ET_NhanVien nv = LayNhanVien();
-                if (nhanVien.ThemNhanVien(nv))
+                if (nv != null && nhanVien.ThemNhanVien(nv) && tk.ThemTK(txtMa.Text))
                 {
                     MessageBox.Show("Thêm nhân viên thành công!", "Thông báo");
 
@@ -100,7 +109,7 @@ namespace QLNS_GUI
                 
                 if (MessageBox.Show("Bạn có muốn xóa nhân viên này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (nhanVien.XoaNhanVien(txtMa.Text))
+                    if ( NV != txtMa.Text && tk.XoaTK(txtMa.Text) && hoaDon.XoaHDNV(new ET_HoaDon { MaNV = new ET_NhanVien {MaNV = txtMa.Text} }) && nhanVien.XoaNhanVien(txtMa.Text)   )
                     {
                         MessageBox.Show("Xóa nhân viên thành công!", "Thông báo");
                     }
@@ -125,7 +134,7 @@ namespace QLNS_GUI
                 ET_NhanVien nv = LayNhanVien();
                 if (MessageBox.Show("Bạn có muốn sửa nhân viên này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (nhanVien.SuaNhanVien(nv))
+                    if (nv != null && nhanVien.SuaNhanVien(nv))
                     {
                         MessageBox.Show("Sửa nhân viên thành công!", "Thông báo");
 
@@ -175,6 +184,11 @@ namespace QLNS_GUI
             btnThem.Enabled = false;
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

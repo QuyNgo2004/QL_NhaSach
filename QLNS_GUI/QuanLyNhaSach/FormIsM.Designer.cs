@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIsM));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnDMK = new System.Windows.Forms.Button();
             this.txtChucVu = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
             this.txtTenNV = new DevExpress.XtraEditors.TextEdit();
@@ -39,9 +40,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đơnVịToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thểLoạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hìnhThứcKhuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,18 +55,18 @@
             this.kháchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formDialog = new DevExpress.XtraEditors.PanelControl();
+            this.formDialog = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChucVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNV.Properties)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.formDialog)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnDMK);
             this.panelControl1.Controls.Add(this.txtChucVu);
             this.panelControl1.Controls.Add(this.txtMaNV);
             this.panelControl1.Controls.Add(this.txtTenNV);
@@ -78,6 +76,13 @@
             this.panelControl1.Controls.Add(this.menuStrip1);
             resources.ApplyResources(this.panelControl1, "panelControl1");
             this.panelControl1.Name = "panelControl1";
+            // 
+            // btnDMK
+            // 
+            resources.ApplyResources(this.btnDMK, "btnDMK");
+            this.btnDMK.Name = "btnDMK";
+            this.btnDMK.UseVisualStyleBackColor = true;
+            this.btnDMK.Click += new System.EventHandler(this.btnDMK_Click);
             // 
             // txtChucVu
             // 
@@ -127,7 +132,6 @@
             // 
             this.sảnPhẩmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.danhSáchSảnPhẩmToolStripMenuItem,
-            this.danhMụcToolStripMenuItem,
             this.khuyếnMãiToolStripMenuItem});
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
             resources.ApplyResources(this.sảnPhẩmToolStripMenuItem, "sảnPhẩmToolStripMenuItem");
@@ -137,24 +141,6 @@
             this.danhSáchSảnPhẩmToolStripMenuItem.Name = "danhSáchSảnPhẩmToolStripMenuItem";
             resources.ApplyResources(this.danhSáchSảnPhẩmToolStripMenuItem, "danhSáchSảnPhẩmToolStripMenuItem");
             this.danhSáchSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.danhSáchSảnPhẩmToolStripMenuItem_Click);
-            // 
-            // danhMụcToolStripMenuItem
-            // 
-            this.danhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.đơnVịToolStripMenuItem,
-            this.thểLoạiToolStripMenuItem});
-            this.danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
-            resources.ApplyResources(this.danhMụcToolStripMenuItem, "danhMụcToolStripMenuItem");
-            // 
-            // đơnVịToolStripMenuItem
-            // 
-            this.đơnVịToolStripMenuItem.Name = "đơnVịToolStripMenuItem";
-            resources.ApplyResources(this.đơnVịToolStripMenuItem, "đơnVịToolStripMenuItem");
-            // 
-            // thểLoạiToolStripMenuItem
-            // 
-            this.thểLoạiToolStripMenuItem.Name = "thểLoạiToolStripMenuItem";
-            resources.ApplyResources(this.thểLoạiToolStripMenuItem, "thểLoạiToolStripMenuItem");
             // 
             // khuyếnMãiToolStripMenuItem
             // 
@@ -246,6 +232,7 @@
             // 
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             resources.ApplyResources(this.reportToolStripMenuItem, "reportToolStripMenuItem");
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // thoatToolStripMenuItem
             // 
@@ -276,7 +263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNV.Properties)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.formDialog)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -284,13 +270,9 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.PanelControl formDialog;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sảnPhẩmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchSảnPhẩmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem danhMụcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đơnVịToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thểLoạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem khuyếnMãiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhânViênToolStripMenuItem;
@@ -312,5 +294,7 @@
         private System.Windows.Forms.ToolStripMenuItem danhSáchHóaĐơnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hìnhThứcKhuyếnMãiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchSảnPhẩmKhuyếnMãiToolStripMenuItem;
+        private System.Windows.Forms.Button btnDMK;
+        private System.Windows.Forms.Panel formDialog;
     }
 }

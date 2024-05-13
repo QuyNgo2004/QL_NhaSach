@@ -34,8 +34,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvSP = new System.Windows.Forms.DataGridView();
             this.txtSL = new System.Windows.Forms.TextBox();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtGia = new System.Windows.Forms.TextBox();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtMaCTHD = new System.Windows.Forms.TextBox();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
@@ -47,7 +49,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPHD)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,11 +86,13 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.txtSL);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.txtGia);
+            this.panel1.Controls.Add(this.txtMaNV);
             this.panel1.Controls.Add(this.txtMaCTHD);
             this.panel1.Controls.Add(this.txtMa);
             this.panel1.Controls.Add(this.btnThem);
@@ -139,6 +143,14 @@
             this.txtSL.Size = new System.Drawing.Size(205, 22);
             this.txtSL.TabIndex = 10;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(32, 276);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(59, 16);
+            this.labelControl5.TabIndex = 6;
+            this.labelControl5.Text = "Tổng tiền:";
+            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(32, 220);
@@ -154,6 +166,15 @@
             this.txtGia.Size = new System.Drawing.Size(89, 22);
             this.txtGia.TabIndex = 11;
             this.txtGia.TextChanged += new System.EventHandler(this.txtMa_TextChanged);
+            // 
+            // txtMaNV
+            // 
+            this.txtMaNV.Location = new System.Drawing.Point(417, 110);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(89, 22);
+            this.txtMaNV.TabIndex = 11;
+            this.txtMaNV.Visible = false;
+            this.txtMaNV.TextChanged += new System.EventHandler(this.txtMa_TextChanged);
             // 
             // txtMaCTHD
             // 
@@ -252,13 +273,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // labelControl5
+            // label4
             // 
-            this.labelControl5.Location = new System.Drawing.Point(32, 276);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(59, 16);
-            this.labelControl5.TabIndex = 6;
-            this.labelControl5.Text = "Tổng tiền:";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(133, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(280, 46);
+            this.label4.TabIndex = 85;
+            this.label4.Text = "THANH TOÁN";
             // 
             // FormThanhToan
             // 
@@ -303,5 +326,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.TextBox txtGia;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private System.Windows.Forms.TextBox txtMaNV;
+        private System.Windows.Forms.Label label4;
     }
 }

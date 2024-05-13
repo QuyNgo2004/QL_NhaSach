@@ -19,5 +19,9 @@ namespace QLNS_BUS
         {
             return ctHD.LoadCTHoaDon(maHD);
         }
+        public bool XoaCTHD(int maHD)
+        {
+            return ctHD.XoaCTHoaDon(maHD);
+        }
     }
 }

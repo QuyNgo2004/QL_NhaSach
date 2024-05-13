@@ -20,9 +20,12 @@ namespace QLNS_GUI
         BUS_KhachHang kh = new BUS_KhachHang();
         BUS_HoaDon hoaDon = new BUS_HoaDon();
         BUS_CTHoaDon cTHoaDon = new BUS_CTHoaDon();
-        public FormThanhToan()
+        BUS_KTLoi kTLoi = new BUS_KTLoi();
+        
+        public FormThanhToan(string maNV)
         {
             InitializeComponent();
+            txtMaNV.Text = maNV;
         }
         bool KiemTraSP(string maSP)
         {
@@ -103,7 +106,7 @@ namespace QLNS_GUI
             try
             {
 
-                if ( txtSL.Text == string.Empty || int.Parse(txtSL.Text) < 0)
+                if ( txtSL.Text == string.Empty || !kTLoi.KTSo(txtSL.Text) || int.Parse(txtSL.Text) < 0 )
                 {
                     MessageBox.Show("Vui lòng nhập số lượng và số lượng lớn hơn 1,");
                     txtSL.Text = "1";
@@ -181,7 +184,7 @@ namespace QLNS_GUI
                 {
                     ET_HoaDon hd = new ET_HoaDon();
                     hoaDon.ThemHD(hd);
-                    hd.MaNV.MaNV = "1";
+                    hd.MaNV.MaNV = txtMaNV.Text;
                     hd.MaHD = int.Parse(hoaDon.LayMaHoaDonMoiTao().ToString());
                     if (cboKhachHang.SelectedItem != null)
                     {
@@ -214,6 +217,8 @@ namespace QLNS_GUI
                     {
                         MessageBox.Show("Thanh toán thành công!", "Thông báo");
                         dgvSPHD.Rows.Clear();
+                        FormInHD inHoaDon = new FormInHD(hd.MaHD);
+                        inHoaDon.ShowDialog();
                     }
                     else
                     {

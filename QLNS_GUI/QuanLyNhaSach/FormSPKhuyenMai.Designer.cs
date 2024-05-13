@@ -45,6 +45,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtMaCTKM = new DevExpress.XtraEditors.TextEdit();
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPKM)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,7 +63,7 @@
             this.groupBox1.Controls.Add(this.dgvSPKM);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 597);
+            this.groupBox1.Size = new System.Drawing.Size(399, 597);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khuyến mãi:";
@@ -77,7 +78,7 @@
             this.dgvSPKM.Name = "dgvSPKM";
             this.dgvSPKM.RowHeadersWidth = 51;
             this.dgvSPKM.RowTemplate.Height = 24;
-            this.dgvSPKM.Size = new System.Drawing.Size(372, 576);
+            this.dgvSPKM.Size = new System.Drawing.Size(393, 576);
             this.dgvSPKM.TabIndex = 0;
             this.dgvSPKM.Click += new System.EventHandler(this.dgvSPKM_Click);
             // 
@@ -85,6 +86,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.dtpNgayKT);
             this.panel1.Controls.Add(this.labelControl6);
@@ -98,7 +100,7 @@
             this.panel1.Controls.Add(this.labelControl2);
             this.panel1.Controls.Add(this.txtMaCTKM);
             this.panel1.Controls.Add(this.txtMa);
-            this.panel1.Location = new System.Drawing.Point(397, 13);
+            this.panel1.Location = new System.Drawing.Point(418, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(597, 597);
             this.panel1.TabIndex = 1;
@@ -233,11 +235,21 @@
             this.txtMa.TabIndex = 47;
             this.txtMa.TextChanged += new System.EventHandler(this.txtMa_TextChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(26, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(526, 46);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "DANH SÁCH  KHUYẾN MÃI\r\n";
+            // 
             // FormSPKhuyenMai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 613);
+            this.ClientSize = new System.Drawing.Size(1027, 613);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -275,5 +287,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvSP;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -36,6 +36,7 @@
             this.dgvDSHD = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvDSSP = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHD)).BeginInit();
@@ -45,6 +46,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnTimKiem);
             this.panel1.Controls.Add(this.dtpNgay);
             this.panel1.Controls.Add(this.label1);
@@ -131,6 +133,16 @@
             this.dgvDSSP.Size = new System.Drawing.Size(507, 298);
             this.dgvDSSP.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(380, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(455, 46);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "DANH SÁCH HÓA ĐƠN";
+            // 
             // FormDSHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridView dgvDSHD;
         private System.Windows.Forms.DataGridView dgvDSSP;
+        private System.Windows.Forms.Label label3;
     }
 }

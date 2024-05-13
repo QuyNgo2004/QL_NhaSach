@@ -15,9 +15,25 @@ namespace QLNS_GUI
     public partial class FormHTKhyenMai : Form
     {
         BUS_HTKhyenMai hTKhuyenMai = new BUS_HTKhyenMai(); 
+        BUS_KTLoi kTLoi = new BUS_KTLoi();
         public FormHTKhyenMai()
         {
             InitializeComponent();
+        }
+        ET_KhuyenMai layKM()
+        {
+            if (!kTLoi.KTSo(txtGiamGia.Text))
+            {
+                return null;
+            }
+            ET_KhuyenMai km = new ET_KhuyenMai
+            {
+                MaKM = txtMa.Text,
+                TenKM = txtTen.Text,
+                GiamGia = int.Parse(txtGiamGia.Text),
+
+            };
+            return km;
         }
         void LoadForm()
         {
@@ -44,14 +60,8 @@ namespace QLNS_GUI
         {
             try
             {
-                ET_KhuyenMai km = new ET_KhuyenMai 
-                {
-                    MaKM = txtMa.Text,
-                    TenKM = txtTen.Text,
-                    GiamGia = int.Parse(txtGiamGia.Text),
-                    
-                };
-                if (hTKhuyenMai.ThemKhuyenMai(km))
+                ET_KhuyenMai km = layKM();
+                if (km != null && hTKhuyenMai.ThemKhuyenMai(km))
                 {
                     MessageBox.Show("Thêm khuyến mãi thành công!", "Thông báo");
 
@@ -122,16 +132,11 @@ namespace QLNS_GUI
         {
             try
             {
-                ET_KhuyenMai km = new ET_KhuyenMai
-                {
-                    MaKM = txtMa.Text,
-                    TenKM = txtTen.Text,
-                    GiamGia = int.Parse(txtGiamGia.Text),
-
-                };
+                ET_KhuyenMai km = layKM();
+                
                 if (MessageBox.Show("Bạn có muốn sửa khuyến mãi này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (hTKhuyenMai.SuaKhuyenMai(km))
+                    if (km != null && hTKhuyenMai.SuaKhuyenMai(km))
                     {
                         MessageBox.Show("Sửa khuyến mãi thành công!", "Thông báo");
 

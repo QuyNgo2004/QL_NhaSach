@@ -15,6 +15,10 @@ namespace QLNS_BUS
         {
             return nhanVien.LoadNhanVien();
         }
+        public ET_NhanVien TimNhanVien(string maNV)
+        {
+            return nhanVien.TimNhanVien(maNV);
+        }
         public bool ThemNhanVien(ET_NhanVien nv)
         {
             return nhanVien.ThemNhanVien(nv);

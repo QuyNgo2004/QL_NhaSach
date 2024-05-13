@@ -20,6 +20,19 @@ namespace QLNS_DAL
 
             return ds;
         }
+        //Tim nhan vien
+        public ET_NhanVien TimNhanVien(string maNV)
+        {
+
+            IQueryable ds = from item in data.Data.NhanViens
+                            where item.MANV == maNV
+                            select new ET_NhanVien { MaNV = item.MANV,TenNV = item.HOTENNV,ChucVu = item.CHUCVU };
+            foreach (ET_NhanVien item in ds)
+            {
+                return item;
+            }
+            return null;
+        }
         //Them danh muc
         public bool ThemNhanVien(ET_NhanVien nhanVien)
         {

@@ -25,6 +25,6 @@ namespace QLNS_ET
 
         public string TenTK { get => tenTK; set => tenTK = value; }
         public string MKhau { get => mKhau; set => mKhau = value; }
-        internal ET_NhanVien MaNV { get => maNV; set => maNV = value; }
+        public ET_NhanVien MaNV { get => maNV; set => maNV = value; }
     }
 }

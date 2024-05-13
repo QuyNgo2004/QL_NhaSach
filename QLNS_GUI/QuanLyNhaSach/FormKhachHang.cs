@@ -15,6 +15,7 @@ namespace QLNS_GUI
     public partial class FormKhachHang : Form
     {
         BUS_KhachHang khachHang = new BUS_KhachHang();
+        BUS_KTLoi kTLoi = new BUS_KTLoi();
         public FormKhachHang()
         {
             InitializeComponent();
@@ -34,6 +35,9 @@ namespace QLNS_GUI
         }
         ET_KhachHang LayKhachHang()
         {
+            if (!kTLoi.KTSo(txtSDT.Text)){
+                return null;
+            }
             ET_KhachHang kh = new ET_KhachHang
             {
                 MaKH = txtMa.Text,
@@ -47,7 +51,7 @@ namespace QLNS_GUI
             try
             {
                 ET_KhachHang kh = LayKhachHang();
-                if (khachHang.ThemKhachHang(kh))
+                if (kh != null && khachHang.ThemKhachHang(kh))
                 {
                     MessageBox.Show("Thêm khách hàng thành công!", "Thông báo");
 
@@ -80,7 +84,9 @@ namespace QLNS_GUI
                         }
                     }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show("Xóa khách hàng không thành công!", "Thông báo");
+            }
             LoadForm();
         }
 
@@ -91,7 +97,7 @@ namespace QLNS_GUI
                 ET_KhachHang kh = LayKhachHang();
                 if (MessageBox.Show("Bạn có muốn sửa khách hàng này không!", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (khachHang.SuaKhachHang(kh))
+                    if (kh != null && khachHang.SuaKhachHang(kh))
                     {
                         MessageBox.Show("Sửa khách hàng thành công!", "Thông báo");
 
@@ -119,6 +125,22 @@ namespace QLNS_GUI
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadForm();
+        }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMa.ReadOnly = true;
+                int row= dataGridView1.CurrentCell.RowIndex;
+                txtMa.Text = dataGridView1.Rows[row].Cells[0].Value.ToString();
+                txtTen.Text = dataGridView1.Rows[row].Cells[1].Value.ToString();
+                txtSDT.Text = dataGridView1.Rows[row].Cells[2].Value.ToString();
+                btnThem.Enabled = false;
+                btnXoa.Enabled = true;
+                btnSua.Enabled = true;
+            }
+            catch (Exception ex) { }
         }
     }
 }

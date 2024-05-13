@@ -117,16 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnDMK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>734, 59</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnDMK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>12, 12, 12, 12</value>
+  </data>
+  <data name="btnDMK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnDMK.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnDMK.Text" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="&gt;&gt;btnDMK.Name" xml:space="preserve">
+    <value>btnDMK</value>
+  </data>
+  <data name="&gt;&gt;btnDMK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDMK.Parent" xml:space="preserve">
+    <value>panelControl1</value>
+  </data>
+  <data name="&gt;&gt;btnDMK.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="txtChucVu.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtChucVu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 97</value>
+    <value>518, 72</value>
+  </data>
+  <data name="txtChucVu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="txtChucVu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 22</value>
+    <value>166, 22</value>
   </data>
   <data name="txtChucVu.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -141,16 +172,19 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;txtChucVu.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtMaNV.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="txtMaNV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 97</value>
+    <value>175, 128</value>
+  </data>
+  <data name="txtMaNV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="txtMaNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 22</value>
+    <value>199, 22</value>
   </data>
   <data name="txtMaNV.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -165,16 +199,19 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;txtMaNV.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txtTenNV.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="txtTenNV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 59</value>
+    <value>175, 70</value>
+  </data>
+  <data name="txtTenNV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="txtTenNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 22</value>
+    <value>199, 22</value>
   </data>
   <data name="txtTenNV.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -189,10 +226,13 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;txtTenNV.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="labelControl3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 103</value>
+    <value>424, 76</value>
+  </data>
+  <data name="labelControl3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="labelControl3.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 16</value>
@@ -213,10 +253,13 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;labelControl3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 103</value>
+    <value>26, 131</value>
+  </data>
+  <data name="labelControl2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="labelControl2.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 16</value>
@@ -237,10 +280,13 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;labelControl2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="labelControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 62</value>
+    <value>26, 74</value>
+  </data>
+  <data name="labelControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
   </data>
   <data name="labelControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 16</value>
@@ -261,7 +307,7 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;labelControl1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -271,24 +317,6 @@
   </data>
   <data name="danhSáchSảnPhẩmToolStripMenuItem.Text" xml:space="preserve">
     <value>Danh sách sản phẩm</value>
-  </data>
-  <data name="đơnVịToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 26</value>
-  </data>
-  <data name="đơnVịToolStripMenuItem.Text" xml:space="preserve">
-    <value>Đơn vị</value>
-  </data>
-  <data name="thểLoạiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 26</value>
-  </data>
-  <data name="thểLoạiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Thể loại</value>
-  </data>
-  <data name="danhMụcToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 26</value>
-  </data>
-  <data name="danhMụcToolStripMenuItem.Text" xml:space="preserve">
-    <value>Danh mục</value>
   </data>
   <data name="hìnhThứcKhuyếnMãiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 26</value>
@@ -408,17 +436,19 @@
     <value>panelControl1</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panelControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="panelControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="panelControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>15, 15, 15, 15</value>
+  </data>
   <data name="panelControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1174, 148</value>
+    <value>1174, 266</value>
   </data>
   <data name="panelControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -435,26 +465,23 @@
   <data name="&gt;&gt;panelControl1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="formDialog.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="formDialog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="formDialog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 148</value>
+    <value>0, 214</value>
   </data>
   <data name="formDialog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1174, 392</value>
+    <value>1174, 326</value>
   </data>
   <data name="formDialog.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;formDialog.Name" xml:space="preserve">
     <value>formDialog</value>
   </data>
   <data name="&gt;&gt;formDialog.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;formDialog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -490,24 +517,6 @@
     <value>danhSáchSảnPhẩmToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;danhSáchSảnPhẩmToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;danhMụcToolStripMenuItem.Name" xml:space="preserve">
-    <value>danhMụcToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;danhMụcToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;đơnVịToolStripMenuItem.Name" xml:space="preserve">
-    <value>đơnVịToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;đơnVịToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;thểLoạiToolStripMenuItem.Name" xml:space="preserve">
-    <value>thểLoạiToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;thểLoạiToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;khuyếnMãiToolStripMenuItem.Name" xml:space="preserve">

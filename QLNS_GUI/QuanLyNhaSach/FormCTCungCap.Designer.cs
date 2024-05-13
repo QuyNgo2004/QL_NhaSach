@@ -48,6 +48,7 @@
             this.txtMa = new DevExpress.XtraEditors.TextEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvSP = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTCungCap)).BeginInit();
             this.panel1.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.dtpNgayCC);
             this.panel2.Controls.Add(this.cboNCC);
             this.panel2.Controls.Add(this.labelControl3);
@@ -122,7 +124,7 @@
             // dtpNgayCC
             // 
             this.dtpNgayCC.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayCC.Location = new System.Drawing.Point(206, 248);
+            this.dtpNgayCC.Location = new System.Drawing.Point(197, 273);
             this.dtpNgayCC.Name = "dtpNgayCC";
             this.dtpNgayCC.Size = new System.Drawing.Size(291, 22);
             this.dtpNgayCC.TabIndex = 44;
@@ -130,14 +132,14 @@
             // cboNCC
             // 
             this.cboNCC.FormattingEnabled = true;
-            this.cboNCC.Location = new System.Drawing.Point(206, 72);
+            this.cboNCC.Location = new System.Drawing.Point(197, 97);
             this.cboNCC.Name = "cboNCC";
             this.cboNCC.Size = new System.Drawing.Size(287, 24);
             this.cboNCC.TabIndex = 43;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(42, 202);
+            this.labelControl3.Location = new System.Drawing.Point(33, 227);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(56, 16);
             this.labelControl3.TabIndex = 32;
@@ -154,14 +156,14 @@
             // 
             // txtGhiChu
             // 
-            this.txtGhiChu.Location = new System.Drawing.Point(206, 300);
+            this.txtGhiChu.Location = new System.Drawing.Point(197, 325);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(291, 22);
             this.txtGhiChu.TabIndex = 42;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(42, 254);
+            this.labelControl4.Location = new System.Drawing.Point(33, 279);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(88, 16);
             this.labelControl4.TabIndex = 33;
@@ -169,7 +171,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(41, 80);
+            this.labelControl1.Location = new System.Drawing.Point(32, 105);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(107, 16);
             this.labelControl1.TabIndex = 34;
@@ -187,7 +189,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(42, 299);
+            this.labelControl5.Location = new System.Drawing.Point(33, 324);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(47, 16);
             this.labelControl5.TabIndex = 35;
@@ -205,7 +207,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(42, 142);
+            this.labelControl2.Location = new System.Drawing.Point(33, 167);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 16);
             this.labelControl2.TabIndex = 36;
@@ -213,14 +215,14 @@
             // 
             // txtSL
             // 
-            this.txtSL.Location = new System.Drawing.Point(206, 200);
+            this.txtSL.Location = new System.Drawing.Point(197, 225);
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(291, 22);
             this.txtSL.TabIndex = 30;
             // 
             // txtMaCC
             // 
-            this.txtMaCC.Location = new System.Drawing.Point(206, 172);
+            this.txtMaCC.Location = new System.Drawing.Point(197, 197);
             this.txtMaCC.Name = "txtMaCC";
             this.txtMaCC.Size = new System.Drawing.Size(75, 22);
             this.txtMaCC.TabIndex = 31;
@@ -229,7 +231,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(206, 140);
+            this.txtMa.Location = new System.Drawing.Point(197, 165);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(291, 22);
             this.txtMa.TabIndex = 31;
@@ -260,6 +262,16 @@
             this.dgvSP.Size = new System.Drawing.Size(821, 224);
             this.dgvSP.TabIndex = 0;
             this.dgvSP.Click += new System.EventHandler(this.dgvSP_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(204, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(407, 46);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "CHI TIẾT CUNG CẤP";
             // 
             // FormCTCungCap
             // 
@@ -307,5 +319,6 @@
         private DevExpress.XtraEditors.TextEdit txtMa;
         private System.Windows.Forms.Button btnXoa;
         private DevExpress.XtraEditors.TextEdit txtMaCC;
+        private System.Windows.Forms.Label label3;
     }
 }

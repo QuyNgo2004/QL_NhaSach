@@ -92,6 +92,53 @@ namespace QLNS_DAL
             }
             return true;
         }
+        //Xoa hoa don nv
+        public bool XoaHoaDonVN(ET_HoaDon hDon)
+        {
+            try
+            {
+                var list = from item in data.Data.HoaDons
+                           where item.maNV == hDon.MaNV.MaNV
+                           select item;
+                foreach (var item in list)
+                {
+                    data.Data.HoaDons.DeleteOnSubmit(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                data.Data.SubmitChanges();
+            }
+            return true;
+        }
+        //Xoa hoa don khach hang
+
+        public bool XoaHoaDonKH(ET_HoaDon hDon)
+        {
+            try
+            {
+                var list = from item in data.Data.HoaDons
+                           where item.maKH == hDon.MaKH.MaKH
+                           select item;
+                foreach (var item in list)
+                {
+                    data.Data.HoaDons.DeleteOnSubmit(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                data.Data.SubmitChanges();
+            }
+            return true;
+        }
         //Sua danh muc
         public bool SuaHoaDon(ET_HoaDon hDon)
         {
@@ -109,5 +156,15 @@ namespace QLNS_DAL
             finally { data.Data.SubmitChanges(); }
             return true;
         }
+        //Laod hoa don nv
+        public IQueryable LoadHoaDonVN(ET_HoaDon hDon)
+        {
+                IQueryable list = from item in data.Data.HoaDons
+                           where item.maNV == hDon.MaNV.MaNV
+                           select new ET_HoaDon { MaHD = item.maHD};
+                
+                return list;
+        }
+
     }
 }

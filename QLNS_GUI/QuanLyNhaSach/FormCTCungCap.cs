@@ -17,6 +17,7 @@ namespace QLNS_GUI
         BUS_SanPham sp = new BUS_SanPham();
         BUS_CTNhaCungCapSP ctsp = new BUS_CTNhaCungCapSP();
         BUS_NhaCungCap ncc = new BUS_NhaCungCap();
+        BUS_KTLoi kTLoi = new BUS_KTLoi();
 
         public FormCTCungCap()
         {
@@ -64,7 +65,11 @@ namespace QLNS_GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            if (kTLoi.KTSo(txtSL.Text))
+            {
+                MessageBox.Show("Số lượng sản phẩm là sô!", "Thông báo");
+                return;
+            }
             try
             {
                 ET_CTNhaCC cc = new ET_CTNhaCC
