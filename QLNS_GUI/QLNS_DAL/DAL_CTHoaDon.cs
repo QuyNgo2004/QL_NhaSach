@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_CTHoaDon
+    public class DAL_CTHoaDon :DAL_DATA
     {
         DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadCTHoaDon(int maHD)
         {
 
-            IQueryable ds = from item in data.Data.CTHoaDons 
+            IQueryable ds = from item in Data.CTHoaDons 
                             where item.maHD == maHD
                             select new
                             {
@@ -38,7 +38,7 @@ namespace QLNS_DAL
                     SL = CTHoaDon.SLuong,
                     TTien = CTHoaDon.TTien,
                 };
-                data.Data.CTHoaDons.InsertOnSubmit(cthd);
+                Data.CTHoaDons.InsertOnSubmit(cthd);
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -55,12 +55,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.CTHoaDons
+                var list = from item in Data.CTHoaDons
                            where item.maHD == maHD
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.CTHoaDons.DeleteOnSubmit(item);
+                    Data.CTHoaDons.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -78,7 +78,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.CTHoaDons.Single(CTHoaDon => CTHoaDon.maCTHD == CTHD.MaCTHD);
+                var suaDM = Data.CTHoaDons.Single(CTHoaDon => CTHoaDon.maCTHD == CTHD.MaCTHD);
                 suaDM.maSP = CTHD.MaSP.MaSP;
                 suaDM.SL = CTHD.SLuong;
                 suaDM.TTien = CTHD.TTien;
@@ -87,7 +87,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

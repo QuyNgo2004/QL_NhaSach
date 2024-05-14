@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_HoaDon
+    public class DAL_HoaDon :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadHoaDon()
         {
 
-            IQueryable ds = from item in data.Data.HoaDons select item;
+            IQueryable ds = from item in Data.HoaDons select item;
 
             return ds;
         }
         public IQueryable LoadHoaDonTheoNgay(DateTime date)
         {
 
-            IQueryable ds = from item in data.Data.HoaDons
+            IQueryable ds = from item in Data.HoaDons
                             where item.ngayHD == date
                             select new
                             {
@@ -36,7 +36,7 @@ namespace QLNS_DAL
         public int HoaDonMoiTao()
         {
              
-            IQueryable ds = (from hd in data.Data.HoaDons
+            IQueryable ds = (from hd in Data.HoaDons
                              orderby hd.maHD descending 
                             select new ET_HoaDon { MaHD = hd.maHD }).Take(1);
             foreach (ET_HoaDon hd in ds)
@@ -57,7 +57,7 @@ namespace QLNS_DAL
                     ngayHD = hDon.NgayHD,
                     //tongHD = 0,
                 };
-                data.Data.HoaDons.InsertOnSubmit(hd);
+                Data.HoaDons.InsertOnSubmit(hd);
             }
             catch (Exception ex)
             {
@@ -65,7 +65,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -74,12 +74,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.HoaDons
+                var list = from item in Data.HoaDons
                            where item.maHD == hDon.MaHD
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.HoaDons.DeleteOnSubmit(item);
+                    Data.HoaDons.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -88,7 +88,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -97,12 +97,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.HoaDons
+                var list = from item in Data.HoaDons
                            where item.maNV == hDon.MaNV.MaNV
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.HoaDons.DeleteOnSubmit(item);
+                    Data.HoaDons.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -111,7 +111,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -121,12 +121,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.HoaDons
+                var list = from item in Data.HoaDons
                            where item.maKH == hDon.MaKH.MaKH
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.HoaDons.DeleteOnSubmit(item);
+                    Data.HoaDons.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -144,7 +144,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.HoaDons.Single(DanhMuc => DanhMuc.maHD == hDon.MaHD);
+                var suaDM = Data.HoaDons.Single(DanhMuc => DanhMuc.maHD == hDon.MaHD);
                 suaDM.maKH = hDon.MaKH.MaKH;
                 suaDM.maNV = hDon.MaNV.MaNV;
                 suaDM.tongHD = hDon.TongHD;
@@ -153,13 +153,13 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
         //Laod hoa don nv
         public IQueryable LoadHoaDonVN(ET_HoaDon hDon)
         {
-                IQueryable list = from item in data.Data.HoaDons
+                IQueryable list = from item in Data.HoaDons
                            where item.maNV == hDon.MaNV.MaNV
                            select new ET_HoaDon { MaHD = item.maHD};
                 

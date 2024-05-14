@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Configuration;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace QLNS_DAL
 {
@@ -17,22 +19,23 @@ namespace QLNS_DAL
         QLNhaSachDataContext data = new QLNhaSachDataContext() ;
         public DAL_DATA()
         {
+            
         }
-        public void ThemDataBase(string serve)
+        public void ThemDataBase(string serve ,string path)
         {
             XDocument xDocument = new XDocument(
                 new XDeclaration("1.0","utf-8", "yes"),
                 new XElement("Root",new XElement("ServeName", serve))
                 );
-            xDocument.Save("Conection.xml");
+            xDocument.Save(path +@"\Conection.xml");
         }
-        public bool LoadData()
+        public bool LoadData(string path)
         {
             XElement ConectionXML;
             IEnumerable<XElement> nullable;
             try
             {
-                ConectionXML = XElement.Load("Conection.xml");
+                ConectionXML = XElement.Load(path + @"\Conection.xml");
                 nullable = from el in ConectionXML.Elements("ServeName")
                            select el;
                 foreach (XElement e in nullable)
@@ -42,6 +45,7 @@ namespace QLNS_DAL
 
                 Conection = @"Data Source=" + ServeName + ";Initial Catalog=QLNhaSach;Integrated Security=True;TrustServerCertificate=True";
                 SqlConnection sqlConnection = new SqlConnection(conection);
+                data = new QLNhaSachDataContext(sqlConnection) ;
                 sqlConnection.Open();
 
                

@@ -22,7 +22,8 @@ namespace QLNS_GUI
 
         private void FormServe_Load(object sender, EventArgs e)
         {
-            if (data.LoadData() == true)
+            string path = System.IO.Path.Combine(Application.StartupPath);
+            if (data.LoadData(path) == true)
             {
                 FormIsM frm = new FormIsM();
                 frm.ShowDialog();
@@ -38,33 +39,30 @@ namespace QLNS_GUI
 
         private void buttonEdit1_Click(object sender, EventArgs e)
         {
-            if (data.LoadData() == false)
-            {
-                data.SaveData(txtServe.Text);
-                FormServe_Load(sender, e);
-            }
-            else
-            {
-                FormIsM frm = new FormIsM();
-                frm.ShowDialog();
-                this.Close();
-            }
+            
         }
 
         private void txtThem_Click(object sender, EventArgs e)
         {
-            data.SaveData(txtServe.Text);
-            if (data.LoadData() == false)
+            try
             {
-                data.SaveData(txtServe.Text);
-                FormServe_Load(sender, e);
-                MessageBox.Show("Lỗi đăng nhập serve!");
-            }
-            else
+                string path = System.IO.Path.Combine(Application.StartupPath);
+                data.SaveData(txtServe.Text, path);
+                if (data.LoadData(path) == false)
+                {
+                    data.SaveData(txtServe.Text, path);
+                    FormServe_Load(sender, e);
+                    MessageBox.Show("Lỗi đăng nhập serve!");
+                }
+                else
+                {
+                    FormIsM frm = new FormIsM();
+                    frm.ShowDialog();
+                    this.Close();
+                }
+            }catch(Exception ex)
             {
-                FormIsM frm = new FormIsM();
-                frm.ShowDialog();
-                this.Close();
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_NhanVien
+    public class DAL_NhanVien : DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadNhanVien()
         {
 
-            IQueryable ds = from item in data.Data.NhanViens
-                            join cn in data.Data.ChiNhanhs on item.maCN equals cn.maCN                            
+            IQueryable ds = from item in Data.NhanViens
+                            join cn in Data.ChiNhanhs on item.maCN equals cn.maCN                            
                             select new {item.MANV,item.HOTENNV,item.DIACHINV,item.SDT,item.NGAYSINH,item.CHUCVU,item.GIOITINH,cn.tenCN,item.CREATED_DATE_NV};
 
             return ds;
@@ -24,7 +24,7 @@ namespace QLNS_DAL
         public ET_NhanVien TimNhanVien(string maNV)
         {
 
-            IQueryable ds = from item in data.Data.NhanViens
+            IQueryable ds = from item in Data.NhanViens
                             where item.MANV == maNV
                             select new ET_NhanVien { MaNV = item.MANV,TenNV = item.HOTENNV,ChucVu = item.CHUCVU };
             foreach (ET_NhanVien item in ds)
@@ -52,7 +52,7 @@ namespace QLNS_DAL
 
 
                 };
-                data.Data.NhanViens.InsertOnSubmit(nv);
+                Data.NhanViens.InsertOnSubmit(nv);
             }
             catch (Exception ex)
             {
@@ -60,7 +60,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -69,12 +69,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.NhanViens
+                var list = from item in Data.NhanViens
                            where item.MANV == nhanVien.MaNV
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.NhanViens.DeleteOnSubmit(item);
+                    Data.NhanViens.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -83,7 +83,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -92,7 +92,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.NhanViens.Single(NhanVien => NhanVien.MANV == nhanVien.MaNV);
+                var suaDM = Data.NhanViens.Single(NhanVien => NhanVien.MANV == nhanVien.MaNV);
                 suaDM.HOTENNV = nhanVien.TenNV;
                 suaDM.DIACHINV = nhanVien.DiaChi;
                 suaDM.SDT = nhanVien.SDT;
@@ -106,7 +106,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

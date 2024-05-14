@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_NhaCungCap
+    public class DAL_NhaCungCap :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load Nha cung cap
         public IQueryable LoadNhaCungCap()
         {
 
-            IQueryable ds = from item in data.Data.NhaCCs select item;
+            IQueryable ds = from item in Data.NhaCCs select item;
 
             return ds;
         }
@@ -31,7 +31,7 @@ namespace QLNS_DAL
                     sDT = ncc.SDT,
                     ghiChu = ncc.GhiChu
                 };
-                data.Data.NhaCCs.InsertOnSubmit(nhacc);
+                Data.NhaCCs.InsertOnSubmit(nhacc);
             }
             catch (Exception ex)
             {
@@ -39,7 +39,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -48,12 +48,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.NhaCCs
+                var list = from item in Data.NhaCCs
                            where item.maNCC == ncc.MaNCC
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.NhaCCs.DeleteOnSubmit(item);
+                    Data.NhaCCs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -62,7 +62,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -71,7 +71,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.NhaCCs.Single(NhaCC => NhaCC.maNCC == ncc.MaNCC);
+                var suaDM = Data.NhaCCs.Single(NhaCC => NhaCC.maNCC == ncc.MaNCC);
                 suaDM.tenNCC = ncc.TenNCC;
                 suaDM.diaChi = ncc.DiaChi;
                 suaDM.sDT = ncc.SDT;
@@ -81,7 +81,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

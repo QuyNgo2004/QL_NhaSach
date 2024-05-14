@@ -9,12 +9,12 @@ namespace QLNS_DAL
 {
     public class DAL_DanhMuc : DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+       // DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadDanhMuc()
         {
             
-           IQueryable ds = from item in data.Data.DanhMucs 
+           IQueryable ds = from item in Data.DanhMucs 
                            select item;
            
             return ds;
@@ -30,14 +30,14 @@ namespace QLNS_DAL
                     tenDM = danhMuc.TenDM,
                     ghiChu = danhMuc .GhiChu
                 };
-                data.Data.DanhMucs.InsertOnSubmit(dm);
+                Data.DanhMucs.InsertOnSubmit(dm);
             }catch (Exception ex)
             {
                 return false;
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -46,11 +46,11 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.DanhMucs where item.maDM == danhMuc.MaDM
+                var list = from item in Data.DanhMucs where item.maDM == danhMuc.MaDM
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.DanhMucs.DeleteOnSubmit(item);
+                    Data.DanhMucs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -68,14 +68,14 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.DanhMucs.Single(DanhMuc => DanhMuc.maDM == danhMuc.MaDM);
+                var suaDM = Data.DanhMucs.Single(DanhMuc => DanhMuc.maDM == danhMuc.MaDM);
                 suaDM.tenDM = danhMuc.TenDM;
                 suaDM.ghiChu = danhMuc.GhiChu;
             }catch(Exception ex)
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

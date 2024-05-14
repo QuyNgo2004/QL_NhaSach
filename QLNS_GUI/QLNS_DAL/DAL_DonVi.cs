@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_DonVi
+    public class DAL_DonVi :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadDonVi()
         {
-            IQueryable ds = from dv in data.Data.DonVis
-                     join dm in data.Data.DanhMucs
+            IQueryable ds = from dv in Data.DonVis
+                     join dm in Data.DanhMucs
                      on dv.maDM equals dm.maDM
                      select new {MãDV = dv.maDV,ĐơnVị = dv.donVi1,GhiChú =  dv.ghiChu,TênDM =  dm.tenDM };
             return ds;
@@ -23,8 +23,8 @@ namespace QLNS_DAL
         public IQueryable LoadTheLoaiDM(string maDM)
         {
 
-          IQueryable ds = from dv in data.Data.DonVis
-                     join dm in data.Data.DanhMucs
+          IQueryable ds = from dv in Data.DonVis
+                     join dm in Data.DanhMucs
                      on dv.maDM equals dm.maDM
                      where maDM == dv.maDM
                      select new { MãDV = dv.maDV, ĐơnVị = dv.donVi1, GhiChú = dv.ghiChu, TênDM = dm.tenDM };
@@ -43,7 +43,7 @@ namespace QLNS_DAL
                     donVi1 = donVi.TenDV,
                     ghiChu = donVi.GhiChu
                 };
-                data.Data.DonVis.InsertOnSubmit(dv);
+                Data.DonVis.InsertOnSubmit(dv);
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -60,12 +60,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.DonVis
+                var list = from item in Data.DonVis
                            where item.maDV == donVi.MaDV
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.DonVis.DeleteOnSubmit(item);
+                    Data.DonVis.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -74,7 +74,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -83,7 +83,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suadv = data.Data.DonVis.Single(DonVi => DonVi.maDV == donVi.MaDV);
+                var suadv = Data.DonVis.Single(DonVi => DonVi.maDV == donVi.MaDV);
                 suadv.maDM = donVi.MaDM.MaDM;
                 suadv.donVi1 = donVi.TenDV;
                 suadv.ghiChu = donVi.GhiChu;
@@ -92,7 +92,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

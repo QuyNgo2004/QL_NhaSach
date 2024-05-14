@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_TheLoai
+    public class DAL_TheLoai : DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load the loai
         public IQueryable LoadTheLoai()
         {
-            IQueryable ds = from tl in data.Data.TheLoais
-                     join dm in data.Data.DanhMucs
+            IQueryable ds = from tl in Data.TheLoais
+                     join dm in Data.DanhMucs
                      on tl.maDM equals dm.maDM
                      select new { MãTL = tl.maTL,TênTL = tl.tenTL,GhiChu = tl.ghiChu,TênDM = dm.tenDM };
            
@@ -25,8 +25,8 @@ namespace QLNS_DAL
         public IQueryable LoadTheLoaiDM(string maDM)
         {
 
-            IQueryable ds = from tl in data.Data.TheLoais
-                     join dm in data.Data.DanhMucs
+            IQueryable ds = from tl in Data.TheLoais
+                     join dm in Data.DanhMucs
                      on tl.maDM equals dm.maDM
                      where maDM == tl.maDM
                      select new { MãTL = tl.maTL, TênTL = tl.tenTL, GhiChu = tl.ghiChu, TênDM = dm.tenDM };
@@ -45,7 +45,7 @@ namespace QLNS_DAL
                     tenTL = theLoai.TenTL,
                     ghiChu = theLoai.GhiChu
                 };
-                data.Data.TheLoais.InsertOnSubmit(tl) ;
+                Data.TheLoais.InsertOnSubmit(tl) ;
             }
             catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -62,12 +62,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.TheLoais
+                var list = from item in Data.TheLoais
                            where item.maTL == theLoai.MaTL
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.TheLoais.DeleteOnSubmit(item);
+                    Data.TheLoais.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -76,7 +76,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -85,7 +85,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaTL = data.Data.TheLoais.Single(TheLoai => TheLoai.maTL == theLoai.MaTL);
+                var suaTL = Data.TheLoais.Single(TheLoai => TheLoai.maTL == theLoai.MaTL);
                 suaTL.maDM = theLoai.MaDM.MaDM;
                 suaTL.tenTL = theLoai.TenTL;
                 suaTL.ghiChu = theLoai.GhiChu;
@@ -94,7 +94,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

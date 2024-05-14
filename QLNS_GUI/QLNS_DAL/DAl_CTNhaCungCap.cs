@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAl_CTNhaCungCap
+    public class DAl_CTNhaCungCap :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+       // DAL_DATA data = new DAL_DATA();
         DAL_SanPham sp = new DAL_SanPham();
         //Load CT nha cung cap
         public IQueryable LoadCTNhaCungCap()
         {
 
-            IQueryable ds = from item in data.Data.NhaCCCTs
-                            join sp in data.Data.SanPhams on item.maSP equals sp.maSP
+            IQueryable ds = from item in Data.NhaCCCTs
+                            join sp in Data.SanPhams on item.maSP equals sp.maSP
                             select new { MaCT = item.maCTNCC, TênSảnPhẩm = sp.tenSP,SL = item.soLuong,NhàCungCấp = item.tenNCC,NgàyCC = item.ngayCC,GhiChú = item.ghiChu,MaSP = item.maSP};
 
             return ds;
@@ -38,7 +38,7 @@ namespace QLNS_DAL
                     
                 };
                 sp.SuaSLSanPham(ct.SL,ct.MaSP.MaSP);
-                data.Data.NhaCCCTs.InsertOnSubmit(dm);
+                Data.NhaCCCTs.InsertOnSubmit(dm);
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -55,12 +55,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.NhaCCCTs
+                var list = from item in Data.NhaCCCTs
                            where item.maSP == maSP
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.NhaCCCTs.DeleteOnSubmit(item);
+                    Data.NhaCCCTs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -78,13 +78,13 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.NhaCCCTs
+                var list = from item in Data.NhaCCCTs
                            where item.maCTNCC == ct.MaCTNhaCC
                            select item;
                 foreach (var item in list)
                 {
                     
-                    if(sp.SuaSLSanPham(-ct.SL, item.maSP)) { data.Data.NhaCCCTs.DeleteOnSubmit(item); }
+                    if(sp.SuaSLSanPham(-ct.SL, item.maSP)) { Data.NhaCCCTs.DeleteOnSubmit(item); }
                             
                             
 
@@ -96,7 +96,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -105,7 +105,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.NhaCCCTs.Single(NhaCCCT => NhaCCCT.maCTNCC == ct.MaCTNhaCC);
+                var suaDM = Data.NhaCCCTs.Single(NhaCCCT => NhaCCCT.maCTNCC == ct.MaCTNhaCC);
                 suaDM.ngayCC = ct.NgayCC;
                 suaDM.soLuong = ct.SL;
                 suaDM.ghiChu = ct.GhiChu;
@@ -114,7 +114,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

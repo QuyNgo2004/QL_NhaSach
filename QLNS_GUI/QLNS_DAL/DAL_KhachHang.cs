@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_KhachHang
+    public class DAL_KhachHang :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+       // DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadKhachHang()
         {
 
-            IQueryable ds = from item in data.Data.KhachHangs select item;
+            IQueryable ds = from item in Data.KhachHangs select item;
 
             return ds;
         }
@@ -29,7 +29,7 @@ namespace QLNS_DAL
                     tenKH = khachHang.TenKH,
                     sDT = khachHang.SDT
                 };
-                data.Data.KhachHangs.InsertOnSubmit(kh);
+                Data.KhachHangs.InsertOnSubmit(kh);
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -46,12 +46,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.KhachHangs
+                var list = from item in Data.KhachHangs
                            where item.maKH == khachHang.MaKH
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.KhachHangs.DeleteOnSubmit(item);
+                    Data.KhachHangs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -69,7 +69,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.KhachHangs.Single(KhachHang => KhachHang.maKH == khachHang.MaKH);
+                var suaDM = Data.KhachHangs.Single(KhachHang => KhachHang.maKH == khachHang.MaKH);
                 suaDM.tenKH = khachHang.TenKH;
                 suaDM.sDT = khachHang.SDT;
             }
@@ -77,7 +77,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

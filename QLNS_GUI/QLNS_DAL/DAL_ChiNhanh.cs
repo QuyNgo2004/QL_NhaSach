@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_ChiNhanh
+    public class DAL_ChiNhanh : DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load chi nhanh
         public IQueryable LoadChiNhanh()
         {
 
-            IQueryable ds = from item in data.Data.ChiNhanhs select item;
+            IQueryable ds = from item in Data.ChiNhanhs select item;
 
             return ds;
         }
@@ -29,7 +29,7 @@ namespace QLNS_DAL
                     tenCN = chinhanh.TenCN,
                     diaChi = chinhanh.DiaChi
                 };
-                data.Data.ChiNhanhs.InsertOnSubmit(cn);
+                Data.ChiNhanhs.InsertOnSubmit(cn);
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -46,12 +46,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.ChiNhanhs
+                var list = from item in Data.ChiNhanhs
                            where item.maCN == chinhanh.MaCN
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.ChiNhanhs.DeleteOnSubmit(item);
+                   Data.ChiNhanhs.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -60,7 +60,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -69,7 +69,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.ChiNhanhs.Single(ChiNhanh => ChiNhanh.maCN == chinhanh.MaCN);
+                var suaDM = Data.ChiNhanhs.Single(ChiNhanh => ChiNhanh.maCN == chinhanh.MaCN);
                 suaDM.tenCN = chinhanh.TenCN;
                 suaDM.diaChi = chinhanh.DiaChi;
             }
@@ -77,7 +77,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

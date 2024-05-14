@@ -9,18 +9,18 @@ using System.Xml;
 
 namespace QLNS_DAL
 {
-    public class DAL_CTKhuyenMai
+    public class DAL_CTKhuyenMai :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         //Load danh muc
         public IQueryable LoadCTKhuyenMai()
         {
 
-            IQueryable ds = from item in data.Data.CTKhuyenMais
-                            join km in data.Data.KhuyenMais 
+            IQueryable ds = from item in Data.CTKhuyenMais
+                            join km in Data.KhuyenMais 
                             on item.maKM equals km.maKM
 
-                            join sp in data.Data.SanPhams
+                            join sp in Data.SanPhams
                             on item.maSP equals sp.maSP
                             select new
                             {
@@ -38,11 +38,11 @@ namespace QLNS_DAL
         public IQueryable LoadCTKhuyenMai(int maSP)
         {
 
-            IQueryable ds = from item in data.Data.CTKhuyenMais
-                            join km in data.Data.KhuyenMais
+            IQueryable ds = from item in Data.CTKhuyenMais
+                            join km in Data.KhuyenMais
                             on item.maKM equals km.maKM
 
-                            join sp in data.Data.SanPhams
+                            join sp in Data.SanPhams
                             on item.maSP equals sp.maSP 
                             where item.maSP == maSP && item.ngayBD < DateTime.Now && item.ngayKT > DateTime.Now
                             select new 
@@ -99,7 +99,7 @@ namespace QLNS_DAL
                     ngayBD = km.NgayBD,
                     ngayKT = km.NgayKT
                 };
-                data.Data.CTKhuyenMais.InsertOnSubmit(dm);
+                Data.CTKhuyenMais.InsertOnSubmit(dm);
             }
             catch (Exception ex)
             {
@@ -107,7 +107,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -116,12 +116,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.CTKhuyenMais
+                var list = from item in Data.CTKhuyenMais
                            where item.maCTKM == km.MaCTKM 
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.CTKhuyenMais.DeleteOnSubmit(item);
+                    Data.CTKhuyenMais.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -130,7 +130,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -139,7 +139,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaDM = data.Data.CTKhuyenMais.Single(CTKhuyenMai => CTKhuyenMai.maCTKM == km.MaCTKM) ;
+                var suaDM = Data.CTKhuyenMais.Single(CTKhuyenMai => CTKhuyenMai.maCTKM == km.MaCTKM) ;
                 suaDM.maKM = km.MaKM.MaKM;
                 suaDM.maSP = km.MaSP.MaSP;
                 suaDM.ngayBD = km.NgayBD;
@@ -149,7 +149,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
        

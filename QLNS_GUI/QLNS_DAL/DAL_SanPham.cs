@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_SanPham
+    public class DAL_SanPham :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
         
        
 
         //Load san pham
         public IQueryable LoadSanPham()
         {
-            IQueryable ds = from tl in data.Data.SanPhams
-                            join tloai in data.Data.TheLoais
+            IQueryable ds = from tl in Data.SanPhams
+                            join tloai in Data.TheLoais
                             on tl.maTL equals tloai.maTL
-                            join dv in data.Data.DonVis
+                            join dv in Data.DonVis
                             on tl.maDV equals dv.maDV
-                            join ncc  in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            join ncc  in Data.NhaCCs on tl.maNCC equals ncc.maNCC
                             where tl.tangKem == 1
                             select new { MãSP = tl.maSP, TênSP = tl.tenSP,/*NhàCC = ncc.tenNCC,*/
                                          ThểLoại = tloai.tenTL,ĐơnGiá = tl.giaSP,ĐơnVị = dv.donVi1,
@@ -33,14 +33,14 @@ namespace QLNS_DAL
         public IQueryable LoadSanPhamDM(string maDM)
         {
 
-            IQueryable ds = from tl in data.Data.SanPhams
-                            join tloai in data.Data.TheLoais
+            IQueryable ds = from tl in Data.SanPhams
+                            join tloai in Data.TheLoais
                             on tl.maTL equals tloai.maTL
-                            join dv in data.Data.DonVis
+                            join dv in Data.DonVis
                             on tl.maDV equals dv.maDV
-                            join dm in data.Data.DanhMucs
+                            join dm in Data.DanhMucs
                             on tloai.maDM equals dm.maDM
-                            join ncc in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            join ncc in Data.NhaCCs on tl.maNCC equals ncc.maNCC
                             where dm.maDM == maDM && tl.tangKem == 1    
                             select new
                             {
@@ -77,7 +77,7 @@ namespace QLNS_DAL
                     SLTonKho =SanPham.SLTonKho,
                     tangKem = SanPham.TKem
                 };
-                data.Data.SanPhams.InsertOnSubmit(tl);
+                Data.SanPhams.InsertOnSubmit(tl);
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -95,13 +95,13 @@ namespace QLNS_DAL
             try
             {
 
-                var list = from item in data.Data.SanPhams
+                var list = from item in Data.SanPhams
                            where item.maSP == sp.MaSP
                            select item;
                     
                     foreach (var item in list)
                     {
-                        data.Data.SanPhams.DeleteOnSubmit(item);
+                        Data.SanPhams.DeleteOnSubmit(item);
                     }
                 
 
@@ -112,7 +112,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
             }
@@ -123,7 +123,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suaTL = data.Data.SanPhams.Single(SanPham => SanPham.maSP == sp.MaSP);
+                var suaTL = Data.SanPhams.Single(SanPham => SanPham.maSP == sp.MaSP);
                 suaTL.tenSP = sp.TenSP;
                 suaTL.maNCC = sp.MaNCC.MaNCC;
                 suaTL.maTL = sp.MaTL.MaTL;
@@ -136,14 +136,14 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
         public bool SuaSLSanPham(int SL,int MaSP)
         {
             try
             {
-                var suaTL = data.Data.SanPhams.Single(SanPham => SanPham.maSP == MaSP);
+                var suaTL = Data.SanPhams.Single(SanPham => SanPham.maSP == MaSP);
                 if(suaTL.SLTonKho + SL >= 0)
                 {
                     suaTL.SLTonKho += SL;
@@ -154,19 +154,19 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
         public IQueryable TimMaSanPham(int MaSP)
         {
-            IQueryable ds = from tl in data.Data.SanPhams
-                            join tloai in data.Data.TheLoais
+            IQueryable ds = from tl in Data.SanPhams
+                            join tloai in Data.TheLoais
                             on tl.maTL equals tloai.maTL
-                            join dv in data.Data.DonVis
+                            join dv in Data.DonVis
                             on tl.maDV equals dv.maDV
-                            join dm in data.Data.DanhMucs
+                            join dm in Data.DanhMucs
                             on tloai.maDM equals dm.maDM
-                            join ncc in data.Data.NhaCCs on tl.maNCC equals ncc.maNCC
+                            join ncc in Data.NhaCCs on tl.maNCC equals ncc.maNCC
                             where tl.maSP == MaSP && tl.tangKem == 1
                             select new
                             {

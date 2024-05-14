@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace QLNS_DAL
 {
-    public class DAL_KhuyenMai
+    public class DAL_KhuyenMai :DAL_DATA
     {
-        DAL_DATA data = new DAL_DATA();
+        //DAL_DATA data = new DAL_DATA();
 
         public IQueryable LoadKhuyenMai()
         {
-            IQueryable km = from dv in data.Data.KhuyenMais
+            IQueryable km = from dv in Data.KhuyenMais
                            
                             select new { MãKM = dv.maKM,TênKM = dv.tenKM,GiảmGiá = dv.giamGia };
             return km;
@@ -30,7 +30,7 @@ namespace QLNS_DAL
                     tenKM = km.TenKM,
                     giamGia = km.GiamGia
                 };
-                data.Data.KhuyenMais.InsertOnSubmit(dv);
+                Data.KhuyenMais.InsertOnSubmit(dv);
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -47,12 +47,12 @@ namespace QLNS_DAL
         {
             try
             {
-                var list = from item in data.Data.KhuyenMais
+                var list = from item in Data.KhuyenMais
                            where item.maKM == km.MaKM
                            select item;
                 foreach (var item in list)
                 {
-                    data.Data.KhuyenMais.DeleteOnSubmit(item);
+                    Data.KhuyenMais.DeleteOnSubmit(item);
                 }
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace QLNS_DAL
             }
             finally
             {
-                data.Data.SubmitChanges();
+                Data.SubmitChanges();
             }
             return true;
         }
@@ -70,7 +70,7 @@ namespace QLNS_DAL
         {
             try
             {
-                var suadv = data.Data.KhuyenMais.Single(KhuyenMai => KhuyenMai.maKM == km.MaKM);
+                var suadv = Data.KhuyenMais.Single(KhuyenMai => KhuyenMai.maKM == km.MaKM);
                 suadv.maKM = km.MaKM;
                 suadv.tenKM = km.TenKM;
                 suadv.giamGia = km.GiamGia;
@@ -79,7 +79,7 @@ namespace QLNS_DAL
             {
                 return false;
             }
-            finally { data.Data.SubmitChanges(); }
+            finally { Data.SubmitChanges(); }
             return true;
         }
     }

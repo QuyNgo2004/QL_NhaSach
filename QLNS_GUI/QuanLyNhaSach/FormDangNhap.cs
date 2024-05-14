@@ -24,13 +24,20 @@ namespace QLNS_GUI
         
         private void button1_Click(object sender, EventArgs e)
         {
-            if(tk.KTTaiKhoan((txtTDN.Text,txtMK.Text)) != null) {
-               nv =  nhanVien.TimNhanVien(tk.KTTaiKhoan((txtTDN.Text, txtMK.Text)));
-               this.Close();
-            }
-            else
+            try
             {
-                MessageBox.Show("Sai mật khẩu !");
+                if (tk.KTTaiKhoan((txtTDN.Text, txtMK.Text)) != null)
+                {
+                    nv = nhanVien.TimNhanVien(tk.KTTaiKhoan((txtTDN.Text, txtMK.Text)));
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sai mật khẩu !");
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -41,10 +48,18 @@ namespace QLNS_GUI
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-               Environment.Exit(0 );
-            }
+                if (MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Environment.Exit(0);
+                }
+            }catch(Exception ex) { }
+        }
+
+        private void FormDangNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,11 +11,11 @@ namespace QLNS_BUS
     {
         DAL_DATA serve = new DAL_DATA();
         public BUS_Data() { }
-        public bool LoadData() {
-            return serve.LoadData();
+        public bool LoadData(string path) {
+            return serve.LoadData(path);
         }
-        public void SaveData(string ser) {
-            serve.ThemDataBase(ser);
+        public void SaveData(string ser,string path) {
+            serve.ThemDataBase(ser,path);
         }
     }
 }
